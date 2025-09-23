@@ -513,7 +513,9 @@
 
                 <div className="bg-blue-600 rounded-lg p-8 text-center text-white">
                   <h3 className="text-2xl font-bold mb-4">¿Necesitas más información?</h3>
-                  <p className="mb-6">Accede a informes especializados con análisis detallado</p>
+                  <p className="mb-6">
+                    <strong>¿Decidir con seguridad o crecer con estrategia?</strong> El Informe Lite ayuda a pacientes a validar su elección; el Informe Completo guía a clínicas con benchmarking y plan de acción. <strong>Puedes solicitar informes de cualquier clínica de Concepción (no solo del Top 20).</strong> Selecciona tu camino.
+                  </p>
                   <div className="flex gap-4 justify-center">
                     <button 
                       onClick={() => { setReportType('lite'); setShowReportModal(true); }}
@@ -602,19 +604,21 @@
                       {reportType === 'lite' && (
                         <div className="text-left mb-6 p-4 bg-blue-50 rounded-lg">
                           <p className="text-sm text-gray-700 leading-relaxed">
-                            <strong>Obtén un análisis detallado de la clínica que piensas elegir.</strong>
+                            <strong>Informe Lite para Consumidores —</strong> Antes de un tratamiento costoso, valida tu elección con datos. Analizamos la clínica que te interesa y te damos una lectura clara para decidir con seguridad.
                           </p>
                           <div className="mt-3">
-                            <p className="text-sm font-medium text-gray-800 mb-2">El informe incluye:</p>
+                            <p className="text-sm font-medium text-gray-800 mb-2">Incluye:</p>
                             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                              <li>• Su posición dentro de las 160 clínicas de Concepción</li>
-                              <li>• Comparación con el promedio del mercado</li>
-                              <li>• Revisión de reclamos y reseñas recientes</li>
-                              <li>• Indicadores de confianza</li>
+                              <li>• <strong>Posición en Concepción</strong> (entre 160 clínicas) y comparación con el <strong>promedio del mercado</strong>.</li>
+                              <li>• <strong>Revisión de reclamos</strong> y <strong>reseñas recientes</strong> (señales de alerta y fortalezas).</li>
+                              <li>• <strong>Indicadores de confianza</strong>: estabilidad de la reputación y respuesta del prestador (si aplica).</li>
                             </ul>
                           </div>
-                          <p className="text-sm text-gray-600 mt-4 italic">
-                            Si estás de acuerdo, por favor déjanos tu información para ponernos en contacto.
+                          <p className="text-sm font-medium text-gray-800 mt-3">
+                            <strong>Aclaración:</strong> Puedes solicitar este informe de <strong>cualquier clínica de Concepción</strong>, <strong>aparezca o no en el Top 20</strong> del dashboard.
+                          </p>
+                          <p className="text-sm text-gray-600 mt-2 italic">
+                            Déjanos tus datos y te contactamos para enviártelo.
                           </p>
                         </div>
                       )}
@@ -622,12 +626,12 @@
                       {reportType === 'completo' && (
                         <div className="text-left mb-6 p-4 bg-purple-50 rounded-lg">
                           <p className="text-sm text-gray-700 leading-relaxed">
-                            <strong>Obtén un diagnóstico completo para mejorar tu reputación y captar más pacientes.</strong>
+                            <strong>Informe Completo para Clínicas</strong> Obtén un <strong>diagnóstico integral</strong> para gestionar tu reputación y <strong>convertir más pacientes</strong>. Te mostramos dónde estás, contra quién compites y <strong>qué hacer en 90 días</strong>.
                           </p>
                           <div className="mt-3">
-                            <p className="text-sm font-medium text-gray-800 mb-2">El informe incluye:</p>
+                            <p className="text-sm font-medium text-gray-800 mb-2">Incluye:</p>
                             <ul className="text-sm text-gray-700 space-y-1 ml-4">
-                              <li>• <strong>Posición en el ranking de Concepción (#/160)</strong> y <strong>percentil</strong> del mercado.</li>
+                              <li>• <strong>Posición en Concepción (#/160)</strong> y <strong>percentil</strong> del mercado.</li>
                               <li>• <strong>Benchmark</strong>: brecha vs <strong>Top 10</strong> y vs tus <strong>5 pares inmediatos</strong> (arriba/abajo).</li>
                               <li>• <strong>Tendencia quincenal</strong>: score bayesiano y número de reseñas.</li>
                               <li>• <strong>Voz del paciente (90 días)</strong>: temas recurrentes, ejemplos curados e <strong>incidencia negativa x100</strong>.</li>
@@ -637,8 +641,11 @@
                               <li>• <strong>Plan de acción 90 días</strong> con 3–6 medidas, responsables sugeridos e indicadores de éxito.</li>
                             </ul>
                           </div>
-                          <p className="text-sm text-gray-600 mt-4 italic">
-                            Si estás de acuerdo, por favor déjanos tu información para ponernos en contacto.
+                          <p className="text-sm font-medium text-gray-800 mt-3">
+                            <strong>Aclaración:</strong> Puedes solicitar este informe para <strong>cualquier clínica de Concepción</strong>, <strong>aparezca o no en el Top 20</strong>; te ubicamos en el ranking y te comparamos con tus pares.
+                          </p>
+                          <p className="text-sm text-gray-600 mt-2 italic">
+                            Déjanos tus datos y coordinamos la entrega.
                           </p>
                         </div>
                       )}
