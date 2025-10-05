@@ -71,7 +71,7 @@
                         body: JSON.stringify(formData)
                     });
                     
-                    alert(`¡Solicitud enviada exitosamente!\n\nRecibirás tu ${reportType === 'lite' ? 'Informe Lite' : 'Informe Completo'} en las próximas 24 horas.\n\nTe contactaremos al WhatsApp: ${contactData.whatsapp}`);
+                    alert(`¡Solicitud enviada exitosamente!\n\nRecibirás tu Informe Premium en las próximas 24 horas.\n\nTe contactaremos al WhatsApp: ${contactData.whatsapp}`);
                 } catch (error) {
                     alert('Solicitud enviada. Te contactaremos pronto.');
                 } finally {
@@ -139,7 +139,8 @@
                             <h2 className="text-3xl mb-6">Concepción, Chile</h2>
                             <div className="bg-white bg-opacity-20 rounded-lg p-6 inline-block">
                                 <p className="text-xl font-semibold">📅 Fecha de corte: 20/09/2025</p>
-                                <p className="text-lg opacity-90">Datos actualizados mensualmente</p>
+                                <p className="text-xl font-semibold">🔄 Próxima actualización: 12/10/2025</p>
+                                <p className="text-lg opacity-90 mt-2">Datos actualizados mensualmente</p>
                             </div>
                         </div>
                     </div>
@@ -148,10 +149,17 @@
                     <div className="max-w-6xl mx-auto px-4 py-8">
                         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
                             <h3 className="text-2xl font-bold mb-4 text-gray-800">📊 Metodología de Ranking</h3>
-                            <p className="text-gray-600 text-lg mb-6">
+                            <p className="text-gray-600 text-lg mb-4">
                                 Este ranking utiliza un <strong>sistema bayesiano</strong> que combina la valoración promedio de Google Maps 
                                 con el número total de reseñas, aplicando un factor de corrección que favorece tanto la calidad como la cantidad de opiniones.
                             </p>
+                            <div className="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+                                <p className="text-green-800">
+                                    <strong>🔄 Datos en tiempo real:</strong> No almacenamos datos de Google Maps. El cálculo se realiza 
+                                    directamente en la fecha de actualización del ranking o en el momento en que solicitas tu informe, 
+                                    garantizando que la información sea siempre fresca y actualizada.
+                                </p>
+                            </div>
                             
                             {/* NUEVO: Destacar cambios principales */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -348,7 +356,8 @@
                                                 <div className="font-semibold text-gray-900">{clinic.name}</div>
                                                 <div className="text-sm text-gray-500">Score: {clinic.score}</div>
                                             </div>
-                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                            <div className={`w-8 h-8 rounded-full
+                                            flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
                                                 {clinic.rank}
                                             </div>
                                         </div>
@@ -447,34 +456,22 @@
 
                         {/* CTA Section - Diseño original */}
                         <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl p-10 text-center mb-8">
-                            <h3 className="text-3xl font-bold mb-6">¿Decidir con seguridad o crecer con estrategia?</h3>
+                            <h3 className="text-3xl font-bold mb-6">Valida tu elección con datos científicos</h3>
                             <p className="text-xl mb-8 max-w-4xl mx-auto">
-                                El <strong>Informe Lite</strong> ayuda a pacientes a validar su elección; 
-                                el <strong>Informe Completo</strong> guía a clínicas con benchmarking y plan de acción.
+                                El <strong>Informe de Validación Premium</strong> te entrega análisis científico completo con metodología bayesiana, 
+                                comparación competitiva y recomendaciones basadas en más de 4 mil reseñas reales verificadas.
                                 Puedes solicitar informes de cualquier clínica de Concepción (no solo del Top 20).
                             </p>
-                            <p className="text-2xl font-bold mb-8">Selecciona tu camino:</p>
                             
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            <div className="max-w-xl mx-auto">
                                 <div className="bg-white bg-opacity-10 backdrop-blur rounded-xl p-8">
-                                    <h4 className="text-2xl font-bold mb-4">📋 Informe Lite</h4>
-                                    <p className="text-4xl font-bold mb-4">$4.999</p>
-                                    <p className="text-lg mb-6">Para pacientes que buscan validar su elección antes de un tratamiento costoso</p>
-                                    <button 
-                                        onClick={() => {
-                                            setReportType('lite');
-                                            setShowContactForm(true);
-                                        }}
-                                        className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-200 w-full"
-                                    >
-                                        Solicitar Informe Lite
-                                    </button>
-                                </div>
-                                
-                                <div className="bg-white bg-opacity-10 backdrop-blur rounded-xl p-8">
-                                    <h4 className="text-2xl font-bold mb-4">📊 Informe Completo</h4>
-                                    <p className="text-4xl font-bold mb-4">$49.999</p>
-                                    <p className="text-lg mb-6">Para clínicas que buscan diagnóstico integral + plan de acción 90 días</p>
+                                    <h4 className="text-2xl font-bold mb-4">📊 Informe de Validación Premium</h4>
+                                    <div className="mb-4">
+                                        <p className="text-2xl line-through opacity-60 mb-2">$49.999</p>
+                                        <p className="text-5xl font-bold mb-2">$19.999</p>
+                                        <p className="text-lg bg-yellow-400 text-blue-900 inline-block px-4 py-2 rounded-full font-bold">🎉 Precio de lanzamiento</p>
+                                    </div>
+                                    <p className="text-lg mb-6">Análisis científico completo + benchmarking competitivo + recomendaciones personalizadas</p>
                                     <button 
                                         onClick={() => {
                                             setReportType('completo');
@@ -482,7 +479,7 @@
                                         }}
                                         className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-300 transition-colors duration-200 w-full"
                                     >
-                                        Solicitar Informe Completo
+                                        Solicitar Informe Premium
                                     </button>
                                 </div>
                             </div>
@@ -565,24 +562,17 @@
                                 <div className="mt-8 space-y-4">
                                     <button 
                                         onClick={() => {
-                                            setReportType('lite');
-                                            setShowClinicModal(false);
-                                            setShowContactForm(true);
-                                        }}
-                                        className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
-                                    >
-                                        Solicitar Informe Lite ($4.999)
-                                    </button>
-                                    <button 
-                                        onClick={() => {
                                             setReportType('completo');
                                             setShowClinicModal(false);
                                             setShowContactForm(true);
                                         }}
                                         className="w-full bg-yellow-500 text-white py-3 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-colors"
                                     >
-                                        Solicitar Informe Completo ($49.999)
+                                        Solicitar Informe Premium ($19.999)
                                     </button>
+                                    <p className="text-center text-sm text-gray-500">
+                                        <span className="line-through">Precio regular: $49.999</span> - 🎉 Precio de lanzamiento
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -594,7 +584,7 @@
                             <div className="bg-white rounded-xl max-w-md w-full p-8">
                                 <div className="flex justify-between items-center mb-6">
                                     <h3 className="text-2xl font-bold text-gray-900">
-                                        Solicitar {reportType === 'lite' ? 'Informe Lite' : 'Informe Completo'}
+                                        Solicitar Informe Premium
                                     </h3>
                                     <button 
                                         onClick={() => {
@@ -609,7 +599,9 @@
                                 
                                 <div className="mb-6 p-4 bg-blue-50 rounded-lg">
                                     <p className="text-sm text-blue-800">
-                                        <strong>Precio:</strong> ${reportType === 'lite' ? '4.999' : '49.999'}<br/>
+                                        <strong>Precio:</strong> <span className="line-through opacity-60">$49.999</span> <span className="text-lg font-bold">$19.999</span> 🎉<br/>
+                                        <strong className="text-green-700">Precio de lanzamiento</strong><br/>
+                                        <strong>Incluye:</strong> Análisis científico completo + benchmarking + recomendaciones<br/>
                                         <strong>Entrega:</strong> 24-48 horas<br/>
                                         <strong>Contacto:</strong> WhatsApp
                                     </p>
