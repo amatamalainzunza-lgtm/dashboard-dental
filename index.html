@@ -89,9 +89,7 @@
                 return 'bg-slate-400';
             };
 
-            // Función para mostrar indicador de cambio
             const getChangeIndicator = (rank) => {
-                // Movimientos conocidos basados en el análisis
                 const changes = {
                     1: { type: 'up', from: 3, color: 'bg-green-500', icon: '↗️', text: '+2' },
                     2: { type: 'down', from: 1, color: 'bg-red-400', icon: '↘️', text: '-1' },
@@ -117,13 +115,11 @@
                 ));
             };
 
-            // Filtros por especialidad
             const accesoUniversal = clinicsData.filter(c => c.acceso);
             const atencionFamiliar = clinicsData.filter(c => c.familia);
             const ortodoncia = clinicsData.filter(c => c.ortodoncia);
             const urgencias = clinicsData.filter(c => c.urgencias);
 
-            // Paginación
             const itemsPerPage = 10;
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
@@ -132,7 +128,6 @@
 
             return (
                 <div className="min-h-screen bg-gray-50">
-                    {/* Header exacto del diseño original */}
                     <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
                         <div className="max-w-6xl mx-auto px-4 text-center">
                             <h1 className="text-5xl font-bold mb-4">🦷 Ranking Clínicas Dentales</h1>
@@ -144,7 +139,6 @@
                         </div>
                     </div>
 
-                    {/* Explicación metodológica */}
                     <div className="max-w-6xl mx-auto px-4 py-8">
                         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
                             <h3 className="text-2xl font-bold mb-4 text-gray-800">📊 Metodología de Ranking</h3>
@@ -160,7 +154,6 @@
                                 </p>
                             </div>
                             
-                            {/* NUEVO: Destacar cambios principales */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                                 <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-lg">
                                     <div className="flex items-center space-x-2">
@@ -191,7 +184,6 @@
                             </div>
                         </div>
 
-                        {/* KPI Cards exactos del diseño original */}
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
                                 <div className="text-4xl font-bold text-blue-600 mb-2">160</div>
@@ -211,7 +203,6 @@
                             </div>
                         </div>
 
-                        {/* Tabla TOP 20 - Diseño original */}
                         <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
                             <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-6">
                                 <h3 className="text-2xl font-bold">🏆 TOP 20 Clínicas Dentales</h3>
@@ -241,7 +232,6 @@
                                                             <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg ${getRankColor(clinic.rank)}`}>
                                                                 {clinic.rank}
                                                             </div>
-                                                            {/* NUEVO: Indicador de cambio especial para #1 */}
                                                             {clinic.rank === 1 && (
                                                                 <div className="bg-yellow-100 border border-yellow-300 rounded-full px-2 py-1">
                                                                     <span className="text-yellow-800 text-xs font-bold">NUEVO LÍDER</span>
@@ -293,7 +283,6 @@
                                 </table>
                             </div>
 
-                            {/* Paginación */}
                             <div className="bg-gray-50 px-6 py-4 flex items-center justify-between">
                                 <button 
                                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
@@ -315,9 +304,7 @@
                             </div>
                         </div>
 
-                        {/* Secciones por especialidad - Diseño original en grid */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                            {/* Acceso Universal */}
                             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                                 <div className="bg-blue-600 text-white p-4">
                                     <h4 className="text-xl font-bold flex items-center">
@@ -340,7 +327,6 @@
                                 </div>
                             </div>
 
-                            {/* Atención Familiar */}
                             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                                 <div className="bg-green-600 text-white p-4">
                                     <h4 className="text-xl font-bold flex items-center">
@@ -363,7 +349,6 @@
                                 </div>
                             </div>
 
-                            {/* Ortodoncia */}
                             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                                 <div className="bg-purple-600 text-white p-4">
                                     <h4 className="text-xl font-bold flex items-center">
@@ -386,7 +371,6 @@
                                 </div>
                             </div>
 
-                            {/* Urgencias */}
                             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                                 <div className="bg-red-600 text-white p-4">
                                     <h4 className="text-xl font-bold flex items-center">
@@ -410,7 +394,6 @@
                             </div>
                         </div>
 
-                        {/* Tabla de horarios paginada - Diseño original */}
                         <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
                             <div className="bg-gradient-to-r from-gray-700 to-gray-800 text-white p-6">
                                 <h3 className="text-2xl font-bold">🕒 Horarios de Atención</h3>
@@ -452,7 +435,6 @@
                             </div>
                         </div>
 
-                        {/* CTA Section - Diseño original */}
                         <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl p-10 text-center mb-8">
                             <h3 className="text-3xl font-bold mb-6">Del ranking a la acción</h3>
                             <p className="text-xl mb-8 max-w-4xl mx-auto">
@@ -482,7 +464,6 @@
                         </div>
                     </div>
 
-                    {/* Modal de información de clínica - Diseño original */}
                     {showClinicModal && selectedClinic && (
                         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                             <div className="bg-white rounded-xl max-w-lg w-full p-8 max-h-screen overflow-y-auto">
@@ -574,7 +555,6 @@
                         </div>
                     )}
 
-                    {/* Modal de formulario de contacto - Diseño original */}
                     {showContactForm && (
                         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                             <div className="bg-white rounded-xl max-w-md w-full p-8">
@@ -661,7 +641,6 @@
                         </div>
                     )}
 
-                    {/* Footer - Diseño original */}
                     <footer className="bg-gray-900 text-white py-12">
                         <div className="max-w-6xl mx-auto px-4 text-center">
                             <p className="text-lg text-gray-300 mb-2">
@@ -678,5 +657,8 @@
 
         ReactDOM.render(<Dashboard />, document.getElementById('root'));
     </script>
+
+    <!-- GoatCounter Analytics -->
+    <script data-goatcounter="https://dental-conce.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
