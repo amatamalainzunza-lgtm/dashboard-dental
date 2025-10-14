@@ -119,7 +119,7 @@
             const ortodoncia = clinicsData.filter(c => c.ortodoncia);
             const urgencias = clinicsData.filter(c => c.urgencias);
 
-            const itemsPerPage = 10;
+            const itemsPerPage = 20;
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             const currentClinics = clinicsData.slice(startIndex, endIndex);
@@ -618,4 +618,3 @@
     <script data-goatcounter="https://dental-conce.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
-
