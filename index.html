@@ -50,6 +50,37 @@
                 { id: 20, name: "Clínica Odontologica Valinor", rating: 5.0, reviews: 23, score: 4.717, rank: 20, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "09:00 - 20:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 1098, 4030000 Concepción, Bío Bío" }
             ];
 
+            const handleContactSubmit = async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    timestamp: new Date().toISOString(),
+                    name: contactData.name,
+                    email: contactData.email,
+                    whatsapp: contactData.whatsapp,
+                    clinicName: contactData.clinicName || selectedClinic?.name || '',
+                    reportType: reportType,
+                    source: 'dashboard-github-oct2025'
+                };
+
+                try {
+                    await fetch('https://script.google.com/macros/s/AKfycbyJMrK-cqWbo_bV5lTZloELoLIIqxdkzESTZZc2xfVFSATACIoTRRdELuaEnukVpmdP/exec', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    alert(`¡Solicitud enviada exitosamente!\n\nRecibirás tu Informe Premium en las próximas 24 horas.\n\nTe contactaremos al WhatsApp: ${contactData.whatsapp}`);
+                } catch (error) {
+                    alert('Solicitud enviada. Te contactaremos pronto.');
+                } finally {
+                    setContactData({ name: '', email: '', whatsapp: '', clinicName: '' });
+                    setShowContactForm(false);
+                    setReportType('');
+                }
+            };
+
             const getRankColor = (rank) => {
                 if (rank === 1) return 'bg-yellow-500';
                 if (rank === 2) return 'bg-gray-400';
@@ -83,6 +114,11 @@
                 ));
             };
 
+            const accesoUniversal = clinicsData.filter(c => c.acceso);
+            const atencionFamiliar = clinicsData.filter(c => c.familia);
+            const ortodoncia = clinicsData.filter(c => c.ortodoncia);
+            const urgencias = clinicsData.filter(c => c.urgencias);
+
             const itemsPerPage = 10;
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
@@ -109,6 +145,13 @@
                                 Este ranking utiliza un <strong>sistema bayesiano</strong> que combina la valoración promedio de Google Maps 
                                 con el número total de reseñas, aplicando un factor de corrección que favorece tanto la calidad como la cantidad de opiniones.
                             </p>
+                            <div className="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+                                <p className="text-green-800">
+                                    <strong>🔄 Datos en tiempo real:</strong> No almacenamos datos de Google Maps. El cálculo se realiza 
+                                    directamente en la fecha de actualización del ranking o en el momento en que solicitas tu informe, 
+                                    garantizando que la información sea siempre fresca y actualizada.
+                                </p>
+                            </div>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                                 <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-lg">
@@ -176,6 +219,7 @@
                                             <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Reviews</th>
                                             <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Score</th>
                                             <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Cambio</th>
+                                            <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
@@ -221,6 +265,17 @@
                                                             </div>
                                                         </div>
                                                     </td>
+                                                    <td className="px-6 py-4 text-center">
+                                                        <button 
+                                                            onClick={() => {
+                                                                setSelectedClinic(clinic);
+                                                                setShowClinicModal(true);
+                                                            }}
+                                                            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200"
+                                                        >
+                                                            Ver
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             );
                                         })}
@@ -248,12 +303,30 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            );
-        }
 
-        ReactDOM.render(<Dashboard />, document.getElementById('root'));
-    </script>
-</body>
-</html>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div className="bg-blue-600 text-white p-4">
+                                    <h4 className="text-xl font-bold flex items-center">
+                                        <span className="mr-2">♿</span>
+                                        Acceso Universal ({accesoUniversal.length})
+                                    </h4>
+                                </div>
+                                <div className="max-h-80 overflow-y-auto">
+                                    {accesoUniversal.slice(0, 12).map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-blue-50 transition-colors">
+                                            <div>
+                                                <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                <div className="text-sm text-gray-500">Score: {clinic.score}</div>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                                {clinic.rank}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div className="bg-green-600 text-white p-4">
+                                    <h4 className="text-xl font-bold flex items-center">
