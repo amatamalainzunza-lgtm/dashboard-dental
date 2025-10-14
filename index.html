@@ -283,38 +283,16 @@
                                 </table>
                             </div>
 
-                            <div className="bg-gray-50 px-6 py-4 flex items-center justify-between">
-                                <button 
-                                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                                    disabled={currentPage === 1}
-                                    className={`px-4 py-2 rounded-lg font-medium ${currentPage === 1 ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
-                                >
-                                    Anterior
-                                </button>
-                                <span className="text-gray-700 font-medium">
-                                    Página {currentPage} de {totalPages}
-                                </span>
-                                <button 
-                                    onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-                                    disabled={currentPage === totalPages}
-                                    className={`px-4 py-2 rounded-lg font-medium ${currentPage === totalPages ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
-                                >
-                                    Siguiente
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                                <div className="bg-blue-600 text-white p-4">
+                                <div className="bg-green-600 text-white p-4">
                                     <h4 className="text-xl font-bold flex items-center">
-                                        <span className="mr-2">♿</span>
-                                        Acceso Universal ({accesoUniversal.length})
+                                        <span className="mr-2">👨‍👩‍👧‍👦</span>
+                                        Atención Familiar ({atencionFamiliar.length})
                                     </h4>
                                 </div>
                                 <div className="max-h-80 overflow-y-auto">
-                                    {accesoUniversal.slice(0, 12).map(clinic => (
-                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-blue-50 transition-colors">
+                                    {atencionFamiliar.slice(0, 8).map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-green-50 transition-colors">
                                             <div>
                                                 <div className="font-semibold text-gray-900">{clinic.name}</div>
                                                 <div className="text-sm text-gray-500">Score: {clinic.score}</div>
@@ -328,5 +306,315 @@
                             </div>
 
                             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                                <div className="bg-green-600 text-white p-4">
+                                <div className="bg-purple-600 text-white p-4">
                                     <h4 className="text-xl font-bold flex items-center">
+                                        <span className="mr-2">🦷</span>
+                                        Ortodoncia ({ortodoncia.length})
+                                    </h4>
+                                </div>
+                                <div className="max-h-80 overflow-y-auto">
+                                    {ortodoncia.slice(0, 14).map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-purple-50 transition-colors">
+                                            <div>
+                                                <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                <div className="text-sm text-gray-500">Score: {clinic.score}</div>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                                {clinic.rank}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div className="bg-red-600 text-white p-4">
+                                    <h4 className="text-xl font-bold flex items-center">
+                                        <span className="mr-2">🚨</span>
+                                        Urgencias ({urgencias.length})
+                                    </h4>
+                                </div>
+                                <div className="max-h-80 overflow-y-auto">
+                                    {urgencias.slice(0, 10).map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-red-50 transition-colors">
+                                            <div>
+                                                <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                <div className="text-sm text-gray-500">Score: {clinic.score}</div>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                                {clinic.rank}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                            <div className="bg-gradient-to-r from-gray-700 to-gray-800 text-white p-6">
+                                <h3 className="text-2xl font-bold">🕒 Horarios de Atención</h3>
+                                <p className="text-gray-300">Información detallada de horarios</p>
+                            </div>
+                            
+                            <div className="overflow-x-auto">
+                                <table className="w-full">
+                                    <thead className="bg-gray-100">
+                                        <tr>
+                                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Clínica</th>
+                                            <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">Lunes-Viernes</th>
+                                            <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">Sábados</th>
+                                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Dirección</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="bg-white divide-y divide-gray-200">
+                                        {currentClinics.map((clinic) => (
+                                            <tr key={clinic.id} className="hover:bg-gray-50">
+                                                <td className="px-6 py-4">
+                                                    <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                    <div className="text-sm text-gray-500">Ranking #{clinic.rank}</div>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <div className="text-gray-900 font-medium">{clinic.horario}</div>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <div className={`font-medium ${clinic.sabado === 'cerrado' ? 'text-red-600' : 'text-green-600'}`}>
+                                                        {clinic.sabado}
+                                                    </div>
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    <div className="text-gray-900">{clinic.direccion}</div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl p-10 text-center mb-8">
+                            <h3 className="text-3xl font-bold mb-6">Del ranking a la acción</h3>
+                            <p className="text-xl mb-8 max-w-4xl mx-auto">
+                                Identificamos qué te frena, dónde está tu oportunidad y cómo subir puestos. Comparativa con tu competencia usando más de 4 mil reseñas y ajuste bayesiano para una comparación más justa.
+                            </p>
+                            
+                            <div className="max-w-xl mx-auto">
+                                <div className="bg-white bg-opacity-10 backdrop-blur rounded-xl p-8">
+                                    <h4 className="text-2xl font-bold mb-4">📊 Informe de Validación Premium</h4>
+                                    <div className="mb-4">
+                                        <p className="text-2xl line-through opacity-60 mb-2">$49.999</p>
+                                        <p className="text-5xl font-bold mb-2">$19.999</p>
+                                        <p className="text-lg bg-yellow-400 text-blue-900 inline-block px-4 py-2 rounded-full font-bold">🎉 Precio de lanzamiento</p>
+                                    </div>
+                                    <p className="text-lg mb-6">Análisis científico completo + benchmarking competitivo + recomendaciones personalizadas</p>
+                                    <button 
+                                        onClick={() => {
+                                            setReportType('completo');
+                                            setShowContactForm(true);
+                                        }}
+                                        className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-300 transition-colors duration-200 w-full"
+                                    >
+                                        Solicitar Informe Premium
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {showClinicModal && selectedClinic && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                            <div className="bg-white rounded-xl max-w-lg w-full p-8 max-h-screen overflow-y-auto">
+                                <div className="flex justify-between items-center mb-6">
+                                    <h3 className="text-2xl font-bold text-gray-900">{selectedClinic.name}</h3>
+                                    <button 
+                                        onClick={() => setShowClinicModal(false)}
+                                        className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+                                
+                                <div className="space-y-6">
+                                    <div className="flex items-center space-x-3">
+                                        <span className="text-xl">🏆</span>
+                                        <span className="font-semibold text-lg">Ranking:</span>
+                                        <span className={`px-3 py-1 rounded-full text-white font-bold text-lg ${getRankColor(selectedClinic.rank)}`}>
+                                            #{selectedClinic.rank}
+                                        </span>
+                                    </div>
+                                    
+                                    <div className="flex items-center space-x-3">
+                                        <span className="text-xl">⭐</span>
+                                        <span className="font-semibold text-lg">Rating:</span>
+                                        <div className="flex items-center space-x-2">
+                                            <div className="flex">{renderStars(selectedClinic.rating)}</div>
+                                            <span className="text-lg font-medium">{selectedClinic.rating} ({selectedClinic.reviews} reseñas)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div className="flex items-center space-x-3 mb-2">
+                                            <span className="text-xl">📍</span>
+                                            <span className="font-semibold text-lg">Dirección:</span>
+                                        </div>
+                                        <p className="text-gray-700 ml-8">{selectedClinic.direccion}</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <div className="flex items-center space-x-3 mb-2">
+                                            <span className="text-xl">🕒</span>
+                                            <span className="font-semibold text-lg">Horarios:</span>
+                                        </div>
+                                        <div className="ml-8 space-y-1">
+                                            <p className="text-gray-700"><strong>L-V:</strong> {selectedClinic.horario}</p>
+                                            <p className="text-gray-700"><strong>Sábado:</strong> {selectedClinic.sabado}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div className="flex items-center space-x-3 mb-3">
+                                            <span className="text-xl">🏥</span>
+                                            <span className="font-semibold text-lg">Servicios:</span>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2 ml-8">
+                                            {selectedClinic.acceso && <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Acceso Universal</span>}
+                                            {selectedClinic.familia && <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Atención Familiar</span>}
+                                            {selectedClinic.ortodoncia && <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Ortodoncia</span>}
+                                            {selectedClinic.urgencias && <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Urgencias</span>}
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-xl">🎯</span>
+                                            <span className="font-semibold text-lg">Score Bayesiano:</span>
+                                            <span className="text-2xl font-bold text-yellow-600">{selectedClinic.score}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="mt-8 space-y-4">
+                                    <button 
+                                        onClick={() => {
+                                            setReportType('completo');
+                                            setShowClinicModal(false);
+                                            setShowContactForm(true);
+                                        }}
+                                        className="w-full bg-yellow-500 text-white py-3 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-colors"
+                                    >
+                                        Solicitar Informe Premium ($19.999)
+                                    </button>
+                                    <p className="text-center text-sm text-gray-500">
+                                        <span className="line-through">Precio regular: $49.999</span> - 🎉 Precio de lanzamiento
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {showContactForm && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                            <div className="bg-white rounded-xl max-w-md w-full p-8">
+                                <div className="flex justify-between items-center mb-6">
+                                    <h3 className="text-2xl font-bold text-gray-900">
+                                        Solicitar Informe Premium
+                                    </h3>
+                                    <button 
+                                        onClick={() => {
+                                            setShowContactForm(false);
+                                            setReportType('');
+                                        }}
+                                        className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+                                
+                                <div className="mb-6 p-4 bg-blue-50 rounded-lg">
+                                    <p className="text-sm text-blue-800">
+                                        <strong>Precio:</strong> <span className="line-through opacity-60">$49.999</span> <span className="text-lg font-bold">$19.999</span> 🎉<br/>
+                                        <strong className="text-green-700">Precio de lanzamiento</strong><br/>
+                                        <strong>Incluye:</strong> Análisis científico completo + benchmarking + recomendaciones<br/>
+                                        <strong>Entrega:</strong> 24-48 horas<br/>
+                                        <strong>Contacto:</strong> WhatsApp
+                                    </p>
+                                </div>
+                                
+                                <form onSubmit={handleContactSubmit} className="space-y-4">
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">Nombre completo *</label>
+                                        <input 
+                                            type="text"
+                                            value={contactData.name}
+                                            onChange={(e) => setContactData({...contactData, name: e.target.value})}
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                                        <input 
+                                            type="email"
+                                            value={contactData.email}
+                                            onChange={(e) => setContactData({...contactData, email: e.target.value})}
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">WhatsApp *</label>
+                                        <input 
+                                            type="tel"
+                                            value={contactData.whatsapp}
+                                            onChange={(e) => setContactData({...contactData, whatsapp: e.target.value})}
+                                            placeholder="+56 9 1234 5678"
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">Clínica de interés (opcional)</label>
+                                        <input 
+                                            type="text"
+                                            value={contactData.clinicName}
+                                            onChange={(e) => setContactData({...contactData, clinicName: e.target.value})}
+                                            placeholder="Ingresa cualquier clínica de Concepción"
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        />
+                                    </div>
+                                    
+                                    <button 
+                                        type="submit"
+                                        disabled={!contactData.name || !contactData.email || !contactData.whatsapp}
+                                        className="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                                    >
+                                        Enviar Solicitud
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    )}
+
+                    <footer className="bg-gray-900 text-white py-12">
+                        <div className="max-w-6xl mx-auto px-4 text-center">
+                            <p className="text-lg text-gray-300 mb-2">
+                                📊 Ranking basado en análisis bayesiano de reseñas de Google Maps
+                            </p>
+                            <p className="text-gray-400">
+                                Fecha de corte: 12/10/2025 | Próxima actualización: 27/10/2025
+                            </p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Dashboard />, document.getElementById('root'));
+    </script>
+
+    <!-- GoatCounter Analytics -->
+    <script data-goatcounter="https://dental-conce.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
