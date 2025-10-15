@@ -45,8 +45,8 @@
                 { id: 16, name: "CLINICA DENTAL ALICURA o'higgins", rating: 4.8, reviews: 167, score: 4.754, rank: 16, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "08:30 - 19:00", sabado: "09:00 - 14:00", direccion: "Av. O'Higgins 1628" },
                 { id: 17, name: "Dra Katherine Adasme", rating: 5.0, reviews: 29, score: 4.746, rank: 17, acceso: true, familia: false, ortodoncia: false, urgencias: false, horario: "09:00 - 20:00", sabado: "09:00 - 20:00", direccion: "Rengo 94, Oficina 41" },
                 { id: 18, name: "Doctor Ortodoncia CDO", rating: 4.9, reviews: 44, score: 4.738, rank: 18, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 492" },
-                { id: 19, name: "Clínica Dental Mood", rating: 5.0, reviews: 25, score: 4.727, rank: 19, acceso: true, familia: true, ortodoncia: true, urgencias: false, horario: "09:00 - 20:00", sabado: "cerrado", direccion: "Cochrane 678" },
-                { id: 20, name: "Clínica Valinor", rating: 5.0, reviews: 23, score: 4.717, rank: 20, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "09:00 - 20:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 1098" }
+                { id: 19, name: "Clínica Dental Uno Salud Angol", rating: 4.8, reviews: 105, score: 4.733, rank: 19, acceso: true, familia: true, ortodoncia: false, urgencias: false, horario: "08:30 - 20:00", sabado: "09:00 - 14:00", direccion: "Angol 518" },
+                { id: 20, name: "Clínica Dental Mood", rating: 5.0, reviews: 25, score: 4.727, rank: 20, acceso: true, familia: true, ortodoncia: true, urgencias: false, horario: "09:00 - 20:00", sabado: "cerrado", direccion: "Cochrane 678" }
             ];
 
             const handleContactSubmit = async (e) => {
@@ -108,11 +108,12 @@
                     16: { type: 'down', from: 8, color: 'bg-red-400', icon: '↘️', text: '-8' },
                     17: { type: 'down', from: 16, color: 'bg-red-400', icon: '↘️', text: '-1' },
                     18: { type: 'down', from: 17, color: 'bg-red-400', icon: '↘️', text: '-1' },
-                    19: { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' },
-                    20: { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' }
+                    19: { type: 'new', from: 21, color: 'bg-blue-500', icon: '🆕', text: 'NEW' },
+                    20: { type: 'down', from: 19, color: 'bg-red-400', icon: '↘️', text: '-1' }
                 };
                 
                 return changes[rank] || { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' };
+            };'bg-gray-400', icon: '➡️', text: '=' };
             };
 
             const renderStars = (rating) => {
@@ -187,7 +188,8 @@
                             <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
                                 <p className="text-blue-800">
                                     <strong>🔄 Actualización Octubre 2025:</strong> San Martín lidera con servicio completo. 
-                                    CentroDent da el mayor salto (+6). ALICURA baja 8 posiciones. 11 clínicas subieron, 8 bajaron, 3 se mantuvieron.
+                                    CentroDent logra el mayor ascenso (+6). ALICURA registra el mayor descenso (-8). 
+                                    🆕 <strong>Clínica Uno Salud Angol</strong> ingresa al TOP 20 en posición #19.
                                 </p>
                             </div>
                         </div>
@@ -198,7 +200,7 @@
                                 <div className="text-gray-600 font-medium">Clínicas Analizadas</div>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-                                <div className="text-4xl font-bold text-green-600 mb-2">1,443</div>
+                                <div className="text-4xl font-bold text-green-600 mb-2">1,548</div>
                                 <div className="text-gray-600 font-medium">Total Reviews TOP 20</div>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
@@ -243,6 +245,11 @@
                                                             {clinic.rank === 1 && (
                                                                 <div className="bg-yellow-100 border border-yellow-300 rounded-full px-2 py-1">
                                                                     <span className="text-yellow-800 text-xs font-bold">NUEVO LÍDER</span>
+                                                                </div>
+                                                            )}
+                                                            {clinic.rank === 19 && (
+                                                                <div className="bg-blue-100 border border-blue-300 rounded-full px-2 py-1">
+                                                                    <span className="text-blue-800 text-xs font-bold">INGRESA</span>
                                                                 </div>
                                                             )}
                                                         </div>
@@ -446,7 +453,7 @@
                         <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl p-10 text-center mb-8">
                             <h3 className="text-3xl font-bold mb-6">Del ranking a la acción</h3>
                             <p className="text-xl mb-8 max-w-4xl mx-auto">
-                                Identificamos qué te frena, dónde está tu oportunidad y cómo subir puestos. Comparativa con tu competencia usando más de 1,400 reseñas y ajuste bayesiano para una comparación más justa.
+                                Identificamos qué te frena, dónde está tu oportunidad y cómo subir puestos. Comparativa con tu competencia usando más de 1,500 reseñas y ajuste bayesiano para una comparación más justa.
                             </p>
                             
                             <div className="max-w-xl mx-auto">
@@ -669,3 +676,4 @@
     <script data-goatcounter="https://dental-conce.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
+
