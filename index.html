@@ -26,29 +26,59 @@
             const [contactData, setContactData] = useState({ name: '', email: '', whatsapp: '', clinicName: '' });
             const [currentPage, setCurrentPage] = useState(1);
 
-            // Datos actualizados - Octubre 2025
             const clinicsData = [
-                { id: 1, name: "Clínica Dental San Martín", rating: 5.0, reviews: 106, score: 4.890, rank: 1, acceso: true, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 – 19:00", sabado: "09:00 - 14:00", direccion: "San Martín 450, 4030000 Concepción, Bío Bío" },
-                { id: 2, name: "Clínica Bio Bio Dental", rating: 5.0, reviews: 99, score: 4.884, rank: 2, acceso: true, familia: false, ortodoncia: false, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "Barros Arana 531, 4030000 Concepción, Bío Bío" },
-                { id: 3, name: "Clínica Dental Brelo - Concepción", rating: 4.9, reviews: 256, score: 4.858, rank: 3, acceso: true, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 14:00", direccion: "Cochrane 844, 4030000 Concepción, Bío Bío" },
-                { id: 4, name: "CentroDent", rating: 4.9, reviews: 104, score: 4.810, rank: 4, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:30 - 17:30", sabado: "cerrado", direccion: "Rengo 193, 2º piso, 4030000 Concepción, Bío Bío" },
-                { id: 5, name: "Münzenmayer Odontología", rating: 5.0, reviews: 49, score: 4.810, rank: 5, acceso: false, familia: false, ortodoncia: false, urgencias: false, horario: "09:30 - 19:00", sabado: "cerrado", direccion: "Anibal Pinto 131, 4030000 Concepción, Bío Bío" },
-                { id: 6, name: "KAI Estudio Dental", rating: 5.0, reviews: 47, score: 4.805, rank: 6, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "09:00 - 19:00", sabado: "10:00 - 14:00", direccion: "Rengo 94, oficina 51, 4030000 Concepción, Bío Bío" },
-                { id: 7, name: "Dra Carolina Weason", rating: 5.0, reviews: 47, score: 4.805, rank: 7, acceso: false, familia: false, ortodoncia: false, urgencias: false, horario: "No informado", sabado: "No informado", direccion: "Lord Cochrane 815, 4030000 Concepción, Bío Bío" },
-                { id: 8, name: "Clinica A+ Salud", rating: 5.0, reviews: 47, score: 4.805, rank: 8, acceso: true, familia: false, ortodoncia: true, urgencias: false, horario: "10:00 - 19:00", sabado: "10:00 - 17:00", direccion: "San Martín 654, Of. 31, 4030000 Concepción, Bío Bío" },
-                { id: 9, name: "Clinica Dental - Hola Dental Concepción", rating: 4.9, reviews: 96, score: 4.805, rank: 9, acceso: true, familia: false, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "Tucapel 240, 4030000 Concepción, Bío Bío" },
-                { id: 10, name: "URGENCIAS dentales - VR Clínica dental", rating: 5.0, reviews: 43, score: 4.795, rank: 10, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "No informado", sabado: "No informado", direccion: "Angol 436, Of. 402, 4030000 Concepción, Bío Bío" },
-                { id: 11, name: "Clínica dental Experiencia Bliss", rating: 4.9, reviews: 76, score: 4.787, rank: 11, acceso: false, familia: false, ortodoncia: true, urgencias: true, horario: "09:30 - 20:30", sabado: "10:30 - 14:00", direccion: "Marina de Chile 2889, San Pedro de la Paz, Bío Bío" },
-                { id: 12, name: "Clínica Origen - Estudio Dental", rating: 5.0, reviews: 38, score: 4.779, rank: 12, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "10:00 - 19:00", sabado: "10:00 - 14:00", direccion: "Cochrane 635, Torre B, 4030000 Concepción, Bío Bío" },
-                { id: 13, name: "Clínica KDENT", rating: 5.0, reviews: 34, score: 4.766, rank: 13, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "cerrado", direccion: "O'Higgins 630, Of. 403, 4030000 Concepción, Bío Bío" },
-                { id: 14, name: "Clinica de Ortodoncia Dr. Pablo Cerda", rating: 4.9, reviews: 58, score: 4.764, rank: 14, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "cerrado", direccion: "Barros Arana 162, 4030000 Concepción, Bío Bío" },
-                { id: 15, name: "CLINICA DENTAL ALICURA o'higgins", rating: 4.8, reviews: 167, score: 4.754, rank: 15, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "08:30 - 19:00", sabado: "09:00 - 14:00", direccion: "Av. O'Higgins 1628, 4030000 Concepción, Bío Bío" },
-                { id: 16, name: "Clínica Dental Dra Katherine Adasme Menares", rating: 5.0, reviews: 29, score: 4.746, rank: 16, acceso: true, familia: false, ortodoncia: false, urgencias: false, horario: "09:00 - 20:00", sabado: "09:00 - 20:00", direccion: "Rengo 94, Oficina 41, 4030000 Concepción, Bío Bío" },
-                { id: 17, name: "Clínica Doctor Ortodoncia - CDO", rating: 4.9, reviews: 44, score: 4.738, rank: 17, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 492, 4030000 Concepción, Bío Bío" },
-                { id: 18, name: "Clínica Dental Uno Salud Angol", rating: 4.8, reviews: 105, score: 4.733, rank: 18, acceso: false, familia: false, ortodoncia: false, urgencias: false, horario: "No informado", sabado: "No informado", direccion: "Angol 453, 4030000 Concepción, Bío Bío" },
-                { id: 19, name: "Clínica Dental Mood", rating: 5.0, reviews: 25, score: 4.727, rank: 19, acceso: true, familia: true, ortodoncia: true, urgencias: false, horario: "09:00 - 20:00", sabado: "cerrado", direccion: "Cochrane 678, 4030000 Concepción, Bío Bío" },
-                { id: 20, name: "Clínica Odontologica Valinor", rating: 5.0, reviews: 23, score: 4.717, rank: 20, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "09:00 - 20:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 1098, 4030000 Concepción, Bío Bío" }
+                { id: 1, name: "Clínica Dental San Martín", rating: 5.0, reviews: 106, score: 4.890, rank: 1, acceso: true, familia: true, ortodoncia: true, urgencias: true, horario: "08:30 - 19:30", sabado: "09:00 - 14:00", direccion: "San Martín 450" },
+                { id: 2, name: "Clínica Bio Bio Dental", rating: 5.0, reviews: 99, score: 4.884, rank: 2, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "O'Higgins Poniente 77" },
+                { id: 3, name: "Clínica Dental Brelo - Concepción", rating: 4.9, reviews: 256, score: 4.858, rank: 3, acceso: true, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 14:00", direccion: "Cochrane 844" },
+                { id: 4, name: "Dra. Gabi Ibáñez", rating: 5.0, reviews: 55, score: 4.824, rank: 4, acceso: true, familia: false, ortodoncia: false, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "Lincoyán 444, Of. 313" },
+                { id: 5, name: "Münzenmayer Odontología", rating: 5.0, reviews: 49, score: 4.810, rank: 5, acceso: false, familia: false, ortodoncia: false, urgencias: false, horario: "09:30 - 19:00", sabado: "cerrado", direccion: "Anibal Pinto 131" },
+                { id: 6, name: "CentroDent", rating: 4.9, reviews: 104, score: 4.810, rank: 6, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:30 - 17:30", sabado: "cerrado", direccion: "Rengo 193, 2º piso" },
+                { id: 7, name: "Hola Dental Concepción", rating: 4.9, reviews: 96, score: 4.805, rank: 7, acceso: true, familia: false, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "Tucapel 240" },
+                { id: 8, name: "KAI Estudio Dental", rating: 5.0, reviews: 47, score: 4.805, rank: 8, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "09:00 - 19:00", sabado: "10:00 - 14:00", direccion: "Rengo 94, oficina 51" },
+                { id: 9, name: "Dra Carolina Weason", rating: 5.0, reviews: 47, score: 4.805, rank: 9, acceso: false, familia: false, ortodoncia: false, urgencias: false, horario: "no informado", sabado: "no informado", direccion: "Lord Cochrane 815" },
+                { id: 10, name: "Clinica A+ Salud", rating: 5.0, reviews: 47, score: 4.805, rank: 10, acceso: true, familia: false, ortodoncia: true, urgencias: false, horario: "10:00 - 19:00", sabado: "10:00 - 17:00", direccion: "San Martín 654, Of. 31" },
+                { id: 11, name: "VR Clínica dental", rating: 5.0, reviews: 43, score: 4.795, rank: 11, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "no informado", sabado: "no informado", direccion: "Angol 436, Of. 402" },
+                { id: 12, name: "Clínica dental Experiencia Bliss", rating: 4.9, reviews: 76, score: 4.787, rank: 12, acceso: false, familia: false, ortodoncia: true, urgencias: true, horario: "09:30 - 20:30", sabado: "10:30 - 14:00", direccion: "Marina de Chile 2889" },
+                { id: 13, name: "Clínica Origen", rating: 5.0, reviews: 38, score: 4.779, rank: 13, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "10:00 - 19:00", sabado: "10:00 - 14:00", direccion: "Cochrane 635, Torre B" },
+                { id: 14, name: "Clínica KDENT", rating: 5.0, reviews: 34, score: 4.766, rank: 14, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "cerrado", direccion: "O'Higgins 630, Of. 403" },
+                { id: 15, name: "Dr. Pablo Cerda Ortodoncia", rating: 4.9, reviews: 58, score: 4.764, rank: 15, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "cerrado", direccion: "Barros Arana 162" },
+                { id: 16, name: "CLINICA DENTAL ALICURA o'higgins", rating: 4.8, reviews: 167, score: 4.754, rank: 16, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "08:30 - 19:00", sabado: "09:00 - 14:00", direccion: "Av. O'Higgins 1628" },
+                { id: 17, name: "Dra Katherine Adasme", rating: 5.0, reviews: 29, score: 4.746, rank: 17, acceso: true, familia: false, ortodoncia: false, urgencias: false, horario: "09:00 - 20:00", sabado: "09:00 - 20:00", direccion: "Rengo 94, Oficina 41" },
+                { id: 18, name: "Doctor Ortodoncia CDO", rating: 4.9, reviews: 44, score: 4.738, rank: 18, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 492" },
+                { id: 19, name: "Clínica Dental Mood", rating: 5.0, reviews: 25, score: 4.727, rank: 19, acceso: true, familia: true, ortodoncia: true, urgencias: false, horario: "09:00 - 20:00", sabado: "cerrado", direccion: "Cochrane 678" },
+                { id: 20, name: "Clínica Valinor", rating: 5.0, reviews: 23, score: 4.717, rank: 20, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "09:00 - 20:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 1098" }
             ];
+
+            const handleContactSubmit = async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    timestamp: new Date().toISOString(),
+                    name: contactData.name,
+                    email: contactData.email,
+                    whatsapp: contactData.whatsapp,
+                    clinicName: contactData.clinicName || selectedClinic?.name || '',
+                    reportType: reportType,
+                    source: 'dashboard-github-oct2025'
+                };
+
+                try {
+                    await fetch('https://script.google.com/macros/s/AKfycbyJMrK-cqWbo_bV5lTZloELoLIIqxdkzESTZZc2xfVFSATACIoTRRdELuaEnukVpmdP/exec', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    alert(`¡Solicitud enviada exitosamente!\n\nRecibirás tu Informe Premium en las próximas 24 horas.\n\nTe contactaremos al WhatsApp: ${contactData.whatsapp}`);
+                } catch (error) {
+                    alert('Solicitud enviada. Te contactaremos pronto.');
+                } finally {
+                    setContactData({ name: '', email: '', whatsapp: '', clinicName: '' });
+                    setShowContactForm(false);
+                    setReportType('');
+                }
+            };
 
             const getRankColor = (rank) => {
                 if (rank === 1) return 'bg-yellow-500';
@@ -63,13 +93,23 @@
                     1: { type: 'up', from: 2, color: 'bg-green-500', icon: '↗️', text: '+1' },
                     2: { type: 'up', from: 3, color: 'bg-green-500', icon: '↗️', text: '+1' },
                     3: { type: 'down', from: 1, color: 'bg-red-400', icon: '↘️', text: '-2' },
-                    4: { type: 'up', from: 15, color: 'bg-green-500', icon: '↗️', text: '+11' },
-                    13: { type: 'up', from: 14, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    14: { type: 'down', from: 13, color: 'bg-red-400', icon: '↘️', text: '-1' },
-                    15: { type: 'up', from: 16, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    16: { type: 'up', from: 17, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    17: { type: 'up', from: 18, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    18: { type: 'up', from: 34, color: 'bg-green-500', icon: '↗️', text: '+16' }
+                    4: { type: 'up', from: 5, color: 'bg-green-500', icon: '↗️', text: '+1' },
+                    5: { type: 'up', from: 6, color: 'bg-green-500', icon: '↗️', text: '+1' },
+                    6: { type: 'up', from: 12, color: 'bg-green-500', icon: '↗️', text: '+6' },
+                    7: { type: 'down', from: 4, color: 'bg-red-400', icon: '↘️', text: '-3' },
+                    8: { type: 'down', from: 7, color: 'bg-red-400', icon: '↘️', text: '-1' },
+                    9: { type: 'up', from: 10, color: 'bg-green-500', icon: '↗️', text: '+1' },
+                    10: { type: 'up', from: 14, color: 'bg-green-500', icon: '↗️', text: '+4' },
+                    11: { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' },
+                    12: { type: 'down', from: 9, color: 'bg-red-400', icon: '↘️', text: '-3' },
+                    13: { type: 'up', from: 15, color: 'bg-green-500', icon: '↗️', text: '+2' },
+                    14: { type: 'up', from: 18, color: 'bg-green-500', icon: '↗️', text: '+4' },
+                    15: { type: 'down', from: 13, color: 'bg-red-400', icon: '↘️', text: '-2' },
+                    16: { type: 'down', from: 8, color: 'bg-red-400', icon: '↘️', text: '-8' },
+                    17: { type: 'down', from: 16, color: 'bg-red-400', icon: '↘️', text: '-1' },
+                    18: { type: 'down', from: 17, color: 'bg-red-400', icon: '↘️', text: '-1' },
+                    19: { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' },
+                    20: { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' }
                 };
                 
                 return changes[rank] || { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' };
@@ -82,6 +122,11 @@
                     </svg>
                 ));
             };
+
+            const accesoUniversal = clinicsData.filter(c => c.acceso);
+            const atencionFamiliar = clinicsData.filter(c => c.familia);
+            const ortodoncia = clinicsData.filter(c => c.ortodoncia);
+            const urgencias = clinicsData.filter(c => c.urgencias);
 
             const itemsPerPage = 10;
             const startIndex = (currentPage - 1) * itemsPerPage;
@@ -97,7 +142,7 @@
                             <h2 className="text-3xl mb-6">Concepción, Chile</h2>
                             <div className="bg-white bg-opacity-20 rounded-lg p-6 inline-block">
                                 <p className="text-xl font-semibold">📅 Fecha de corte: 12/10/2025</p>
-                                <p className="text-xl font-semibold">🔄 Próxima actualización: 27/10/2025</p>
+                                <p className="text-xl font-semibold">🔄 Próxima actualización: 09/11/2025</p>
                             </div>
                         </div>
                     </div>
@@ -109,6 +154,13 @@
                                 Este ranking utiliza un <strong>sistema bayesiano</strong> que combina la valoración promedio de Google Maps 
                                 con el número total de reseñas, aplicando un factor de corrección que favorece tanto la calidad como la cantidad de opiniones.
                             </p>
+                            <div className="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+                                <p className="text-green-800">
+                                    <strong>🔄 Datos en tiempo real:</strong> No almacenamos datos de Google Maps. El cálculo se realiza 
+                                    directamente en la fecha de actualización del ranking o en el momento en que solicitas tu informe, 
+                                    garantizando que la información sea siempre fresca y actualizada.
+                                </p>
+                            </div>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                                 <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-4 rounded-lg">
@@ -126,7 +178,7 @@
                                         <span className="text-2xl">📈</span>
                                         <div>
                                             <p className="font-bold text-lg">MAYOR ASCENSO</p>
-                                            <p className="text-sm">Uno Salud Angol (+16 posiciones)</p>
+                                            <p className="text-sm">CentroDent (+6 posiciones)</p>
                                         </div>
                                     </div>
                                 </div>
@@ -134,9 +186,8 @@
                             
                             <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
                                 <p className="text-blue-800">
-                                    <strong>🔄 Actualización Octubre 2025:</strong> El ranking muestra cambios significativos 
-                                    con nuevo líder. Clínica Dental San Martín asciende al #1, mientras que CentroDent 
-                                    sorprende con un ascenso de 11 posiciones (#15 → #4).
+                                    <strong>🔄 Actualización Octubre 2025:</strong> San Martín lidera con servicio completo. 
+                                    CentroDent da el mayor salto (+6). ALICURA baja 8 posiciones. 11 clínicas subieron, 8 bajaron, 3 se mantuvieron.
                                 </p>
                             </div>
                         </div>
@@ -147,11 +198,11 @@
                                 <div className="text-gray-600 font-medium">Clínicas Analizadas</div>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-                                <div className="text-4xl font-bold text-green-600 mb-2">1,493</div>
-                                <div className="text-gray-600 font-medium">Total Reviews</div>
+                                <div className="text-4xl font-bold text-green-600 mb-2">1,443</div>
+                                <div className="text-gray-600 font-medium">Total Reviews TOP 20</div>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
-                                <div className="text-4xl font-bold text-yellow-600 mb-2">5.0</div>
+                                <div className="text-4xl font-bold text-yellow-600 mb-2">4.9</div>
                                 <div className="text-gray-600 font-medium">Rating Promedio</div>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
@@ -176,6 +227,7 @@
                                             <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Reviews</th>
                                             <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Score</th>
                                             <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Cambio</th>
+                                            <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
@@ -190,7 +242,7 @@
                                                             </div>
                                                             {clinic.rank === 1 && (
                                                                 <div className="bg-yellow-100 border border-yellow-300 rounded-full px-2 py-1">
-                                                                    <span className="text-yellow-800 text-xs font-bold">↗️ NUEVO #1</span>
+                                                                    <span className="text-yellow-800 text-xs font-bold">NUEVO LÍDER</span>
                                                                 </div>
                                                             )}
                                                         </div>
@@ -221,6 +273,17 @@
                                                             </div>
                                                         </div>
                                                     </td>
+                                                    <td className="px-6 py-4 text-center">
+                                                        <button 
+                                                            onClick={() => {
+                                                                setSelectedClinic(clinic);
+                                                                setShowClinicModal(true);
+                                                            }}
+                                                            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200"
+                                                        >
+                                                            Ver
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             );
                                         })}
@@ -248,12 +311,361 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div className="bg-blue-600 text-white p-4">
+                                    <h4 className="text-xl font-bold flex items-center">
+                                        <span className="mr-2">♿</span>
+                                        Acceso Universal ({accesoUniversal.length})
+                                    </h4>
+                                </div>
+                                <div className="max-h-80 overflow-y-auto">
+                                    {accesoUniversal.map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-blue-50 transition-colors">
+                                            <div>
+                                                <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                <div className="text-sm text-gray-500">Score: {clinic.score}</div>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                                {clinic.rank}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div className="bg-green-600 text-white p-4">
+                                    <h4 className="text-xl font-bold flex items-center">
+                                        <span className="mr-2">👨‍👩‍👧‍👦</span>
+                                        Atención Familiar ({atencionFamiliar.length})
+                                    </h4>
+                                </div>
+                                <div className="max-h-80 overflow-y-auto">
+                                    {atencionFamiliar.map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-green-50 transition-colors">
+                                            <div>
+                                                <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                <div className="text-sm text-gray-500">Score: {clinic.score}</div>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                                {clinic.rank}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div className="bg-purple-600 text-white p-4">
+                                    <h4 className="text-xl font-bold flex items-center">
+                                        <span className="mr-2">🦷</span>
+                                        Ortodoncia ({ortodoncia.length})
+                                    </h4>
+                                </div>
+                                <div className="max-h-80 overflow-y-auto">
+                                    {ortodoncia.map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-purple-50 transition-colors">
+                                            <div>
+                                                <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                <div className="text-sm text-gray-500">Score: {clinic.score}</div>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                                {clinic.rank}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                                <div className="bg-red-600 text-white p-4">
+                                    <h4 className="text-xl font-bold flex items-center">
+                                        <span className="mr-2">🚨</span>
+                                        Urgencias ({urgencias.length})
+                                    </h4>
+                                </div>
+                                <div className="max-h-80 overflow-y-auto">
+                                    {urgencias.map(clinic => (
+                                        <div key={clinic.id} className="flex justify-between items-center p-4 border-b border-gray-100 hover:bg-red-50 transition-colors">
+                                            <div>
+                                                <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                <div className="text-sm text-gray-500">Score: {clinic.score}</div>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${getRankColor(clinic.rank)}`}>
+                                                {clinic.rank}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                            <div className="bg-gradient-to-r from-gray-700 to-gray-800 text-white p-6">
+                                <h3 className="text-2xl font-bold">🕒 Horarios de Atención</h3>
+                                <p className="text-gray-300">Información detallada de horarios</p>
+                            </div>
+                            
+                            <div className="overflow-x-auto">
+                                <table className="w-full">
+                                    <thead className="bg-gray-100">
+                                        <tr>
+                                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Clínica</th>
+                                            <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">Lunes-Viernes</th>
+                                            <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">Sábados</th>
+                                            <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">Dirección</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="bg-white divide-y divide-gray-200">
+                                        {currentClinics.map((clinic) => (
+                                            <tr key={clinic.id} className="hover:bg-gray-50">
+                                                <td className="px-6 py-4">
+                                                    <div className="font-semibold text-gray-900">{clinic.name}</div>
+                                                    <div className="text-sm text-gray-500">Ranking #{clinic.rank}</div>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <div className="text-gray-900 font-medium">{clinic.horario}</div>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <div className={`font-medium ${clinic.sabado === 'cerrado' ? 'text-red-600' : 'text-green-600'}`}>
+                                                        {clinic.sabado}
+                                                    </div>
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    <div className="text-gray-900">{clinic.direccion}</div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl p-10 text-center mb-8">
+                            <h3 className="text-3xl font-bold mb-6">Del ranking a la acción</h3>
+                            <p className="text-xl mb-8 max-w-4xl mx-auto">
+                                Identificamos qué te frena, dónde está tu oportunidad y cómo subir puestos. Comparativa con tu competencia usando más de 1,400 reseñas y ajuste bayesiano para una comparación más justa.
+                            </p>
+                            
+                            <div className="max-w-xl mx-auto">
+                                <div className="bg-white bg-opacity-10 backdrop-blur rounded-xl p-8">
+                                    <h4 className="text-2xl font-bold mb-4">📊 Informe de Validación Premium</h4>
+                                    <div className="mb-4">
+                                        <p className="text-2xl line-through opacity-60 mb-2">$49.999</p>
+                                        <p className="text-5xl font-bold mb-2">$19.999</p>
+                                        <p className="text-lg bg-yellow-400 text-blue-900 inline-block px-4 py-2 rounded-full font-bold">🎉 Precio de lanzamiento</p>
+                                    </div>
+                                    <p className="text-lg mb-6">Análisis científico completo + benchmarking competitivo + recomendaciones personalizadas</p>
+                                    <button 
+                                        onClick={() => {
+                                            setReportType('completo');
+                                            setShowContactForm(true);
+                                        }}
+                                        className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-300 transition-colors duration-200 w-full"
+                                    >
+                                        Solicitar Informe Premium
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    {showClinicModal && selectedClinic && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                            <div className="bg-white rounded-xl max-w-lg w-full p-8 max-h-screen overflow-y-auto">
+                                <div className="flex justify-between items-center mb-6">
+                                    <h3 className="text-2xl font-bold text-gray-900">{selectedClinic.name}</h3>
+                                    <button 
+                                        onClick={() => setShowClinicModal(false)}
+                                        className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+                                
+                                <div className="space-y-6">
+                                    <div className="flex items-center space-x-3">
+                                        <span className="text-xl">🏆</span>
+                                        <span className="font-semibold text-lg">Ranking:</span>
+                                        <span className={`px-3 py-1 rounded-full text-white font-bold text-lg ${getRankColor(selectedClinic.rank)}`}>
+                                            #{selectedClinic.rank}
+                                        </span>
+                                    </div>
+                                    
+                                    <div className="flex items-center space-x-3">
+                                        <span className="text-xl">⭐</span>
+                                        <span className="font-semibold text-lg">Rating:</span>
+                                        <div className="flex items-center space-x-2">
+                                            <div className="flex">{renderStars(selectedClinic.rating)}</div>
+                                            <span className="text-lg font-medium">{selectedClinic.rating} ({selectedClinic.reviews} reseñas)</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div className="flex items-center space-x-3 mb-2">
+                                            <span className="text-xl">📍</span>
+                                            <span className="font-semibold text-lg">Dirección:</span>
+                                        </div>
+                                        <p className="text-gray-700 ml-8">{selectedClinic.direccion}</p>
+                                    </div>
+                                    
+                                    <div>
+                                        <div className="flex items-center space-x-3 mb-2">
+                                            <span className="text-xl">🕒</span>
+                                            <span className="font-semibold text-lg">Horarios:</span>
+                                        </div>
+                                        <div className="ml-8 space-y-1">
+                                            <p className="text-gray-700"><strong>L-V:</strong> {selectedClinic.horario}</p>
+                                            <p className="text-gray-700"><strong>Sábado:</strong> {selectedClinic.sabado}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div className="flex items-center space-x-3 mb-3">
+                                            <span className="text-xl">🏥</span>
+                                            <span className="font-semibold text-lg">Servicios:</span>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2 ml-8">
+                                            {selectedClinic.acceso && <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Acceso Universal</span>}
+                                            {selectedClinic.familia && <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Atención Familiar</span>}
+                                            {selectedClinic.ortodoncia && <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Ortodoncia</span>}
+                                            {selectedClinic.urgencias && <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Urgencias</span>}
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                        <div className="flex items-center space-x-3">
+                                            <span className="text-xl">🎯</span>
+                                            <span className="font-semibold text-lg">Score Bayesiano:</span>
+                                            <span className="text-2xl font-bold text-yellow-600">{selectedClinic.score}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="mt-8 space-y-4">
+                                    <button 
+                                        onClick={() => {
+                                            setReportType('completo');
+                                            setShowClinicModal(false);
+                                            setShowContactForm(true);
+                                        }}
+                                        className="w-full bg-yellow-500 text-white py-3 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-colors"
+                                    >
+                                        Solicitar Informe Premium ($19.999)
+                                    </button>
+                                    <p className="text-center text-sm text-gray-500">
+                                        <span className="line-through">Precio regular: $49.999</span> - 🎉 Precio de lanzamiento
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {showContactForm && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                            <div className="bg-white rounded-xl max-w-md w-full p-8">
+                                <div className="flex justify-between items-center mb-6">
+                                    <h3 className="text-2xl font-bold text-gray-900">
+                                        Solicitar Informe Premium
+                                    </h3>
+                                    <button 
+                                        onClick={() => {
+                                            setShowContactForm(false);
+                                            setReportType('');
+                                        }}
+                                        className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
+                                    >
+                                        ×
+                                    </button>
+                                </div>
+                                
+                                <div className="mb-6 p-4 bg-blue-50 rounded-lg">
+                                    <p className="text-sm text-blue-800">
+                                        <strong>Precio:</strong> <span className="line-through opacity-60">$49.999</span> <span className="text-lg font-bold">$19.999</span> 🎉<br/>
+                                        <strong className="text-green-700">Precio de lanzamiento</strong><br/>
+                                        <strong>Incluye:</strong> Análisis científico completo + benchmarking + recomendaciones<br/>
+                                        <strong>Entrega:</strong> 24-48 horas<br/>
+                                        <strong>Contacto:</strong> WhatsApp
+                                    </p>
+                                </div>
+                                
+                                <form onSubmit={handleContactSubmit} className="space-y-4">
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">Nombre completo *</label>
+                                        <input 
+                                            type="text"
+                                            value={contactData.name}
+                                            onChange={(e) => setContactData({...contactData, name: e.target.value})}
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                                        <input 
+                                            type="email"
+                                            value={contactData.email}
+                                            onChange={(e) => setContactData({...contactData, email: e.target.value})}
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">WhatsApp *</label>
+                                        <input 
+                                            type="tel"
+                                            value={contactData.whatsapp}
+                                            onChange={(e) => setContactData({...contactData, whatsapp: e.target.value})}
+                                            placeholder="+56 9 1234 5678"
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2">Clínica de interés (opcional)</label>
+                                        <input 
+                                            type="text"
+                                            value={contactData.clinicName}
+                                            onChange={(e) => setContactData({...contactData, clinicName: e.target.value})}
+                                            placeholder="Ingresa cualquier clínica de Concepción"
+                                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        />
+                                    </div>
+                                    
+                                    <button 
+                                        type="submit"
+                                        disabled={!contactData.name || !contactData.email || !contactData.whatsapp}
+                                        className="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                                    >
+                                        Enviar Solicitud
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    )}
+
+                    <footer className="bg-gray-900 text-white py-12">
+                        <div className="max-w-6xl mx-auto px-4 text-center">
+                            <p className="text-lg text-gray-300 mb-2">
+                                📊 Ranking basado en análisis bayesiano de reseñas de Google Maps
+                            </p>
+                            <p className="text-gray-400">
+                                Fecha de corte: 12/10/2025 | Próxima actualización: 09/11/2025
+                            </p>
+                        </div>
+                    </footer>
                 </div>
             );
         }
 
         ReactDOM.render(<Dashboard />, document.getElementById('root'));
     </script>
+
+    <script data-goatcounter="https://dental-conce.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
