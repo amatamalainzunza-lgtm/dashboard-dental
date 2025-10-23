@@ -266,6 +266,15 @@
                             setShowHuellaDigital(true);
                             // Scroll to top when modal opens
                             window.scrollTo(0, 0);
+                            
+                            // Track en GoatCounter la apertura de Huella Digital específica
+                            if (window.goatcounter) {
+                                window.goatcounter.count({
+                                    path: `/huella-digital/clinica-${rankNumber}`,
+                                    title: `Huella Digital - ${clinic.name}`,
+                                    event: true
+                                });
+                            }
                         }, 500); // pequeño delay para que el dashboard cargue primero
                     }
                 }
@@ -647,6 +656,15 @@
                         body: JSON.stringify(formData)
                     });
 
+                    // Track conversión completada
+                    if (window.goatcounter) {
+                        window.goatcounter.count({
+                            path: `/conversion/formulario-enviado/${reportType}`,
+                            title: `Formulario Enviado - ${formData.clinicName || 'Sin especificar'}`,
+                            event: true
+                        });
+                    }
+
                     alert('¡Solicitud enviada! Te contactaremos por WhatsApp pronto.');
                     setShowContactForm(false);
                     setContactData({ name: '', email: '', whatsapp: '', clinicName: '' });
@@ -815,6 +833,15 @@
                                     setReportType('clinic');
                                     setShowContactForm(true);
                                     setContactData({...contactData, clinicName: huellaClinic.name});
+                                    
+                                    // Track conversión a Informe Premium
+                                    if (window.goatcounter) {
+                                        window.goatcounter.count({
+                                            path: `/conversion/informe-premium/clinica-${huellaClinic.rank}`,
+                                            title: `Solicitud Informe Premium - ${huellaClinic.name}`,
+                                            event: true
+                                        });
+                                    }
                                 }}>
                                     📈 Solicitar Informe Premium
                                 </a>
@@ -978,6 +1005,15 @@
                                     setReportType('clinic');
                                     setShowContactForm(true);
                                     setContactData({...contactData, clinicName: huellaClinic.name});
+                                    
+                                    // Track conversión a Informe Premium
+                                    if (window.goatcounter) {
+                                        window.goatcounter.count({
+                                            path: `/conversion/informe-premium/clinica-${huellaClinic.rank}`,
+                                            title: `Solicitud Informe Premium - ${huellaClinic.name}`,
+                                            event: true
+                                        });
+                                    }
                                 }}>
                                     📊 Solicitar Análisis Completo
                                 </a>
@@ -1109,6 +1145,15 @@
                                                     onClick={() => {
                                                         setHuellaClinic(clinic);
                                                         setShowHuellaDigital(true);
+                                                        
+                                                        // Track en GoatCounter
+                                                        if (window.goatcounter) {
+                                                            window.goatcounter.count({
+                                                                path: `/huella-digital/clinica-${clinic.rank}`,
+                                                                title: `Huella Digital - ${clinic.name}`,
+                                                                event: true
+                                                            });
+                                                        }
                                                     }}
                                                     className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white py-2 px-3 rounded-lg font-bold text-sm hover:from-purple-700 hover:to-purple-900 transition-all"
                                                 >
@@ -1176,6 +1221,15 @@
                                                                 onClick={() => {
                                                                     setHuellaClinic(clinic);
                                                                     setShowHuellaDigital(true);
+                                                                    
+                                                                    // Track en GoatCounter
+                                                                    if (window.goatcounter) {
+                                                                        window.goatcounter.count({
+                                                                            path: `/huella-digital/clinica-${clinic.rank}`,
+                                                                            title: `Huella Digital - ${clinic.name}`,
+                                                                            event: true
+                                                                        });
+                                                                    }
                                                                 }}
                                                                 className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white py-2 px-4 rounded-lg font-bold text-sm hover:from-purple-700 hover:to-purple-900 transition-all shadow-md hover:shadow-lg"
                                                             >
