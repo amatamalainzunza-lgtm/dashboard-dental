@@ -12,15 +12,219 @@
         body { 
             font-family: system-ui, -apple-system, sans-serif;
         }
-        /* Mejoras para scroll horizontal en móviles */
         .table-scroll {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        /* Estilos para modal responsivo */
         .modal-content {
             max-height: 90vh;
             overflow-y: auto;
+        }
+        
+        /* ESTILOS PARA HUELLA DIGITAL */
+        .huella-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        .huella-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 40px 30px;
+            text-align: center;
+        }
+        .huella-header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .huella-header .subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        .rank-badge {
+            display: inline-block;
+            background: #fbbf24;
+            color: #1f2937;
+            font-size: 56px;
+            font-weight: 900;
+            padding: 20px 35px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .huella-content {
+            padding: 40px;
+        }
+        .huella-section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        .metric-value {
+            font-size: 36px;
+            font-weight: 900;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            font-size: 14px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .insight-box {
+            background: #ecfdf5;
+            border-left: 5px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .insight-box.warning {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+        }
+        .insight-box.alert {
+            background: #fee2e2;
+            border-left-color: #ef4444;
+        }
+        .insight-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+        .insight-text {
+            color: #374151;
+            font-size: 15px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table tr:hover {
+            background: #f9fafb;
+        }
+        .highlight-you {
+            background: #fef3c7 !important;
+            font-weight: 700;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .huella-footer {
+            background: #f9fafb;
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+        }
+        .emoji-large {
+            font-size: 48px;
+            display: block;
+            margin: 0 auto 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .huella-header h1 {
+                font-size: 24px;
+            }
+            .huella-header .subtitle {
+                font-size: 16px;
+            }
+            .rank-badge {
+                font-size: 42px;
+                padding: 15px 25px;
+            }
+            .huella-content {
+                padding: 25px;
+            }
+            .section-title {
+                font-size: 18px;
+            }
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .metric-value {
+                font-size: 28px;
+            }
+            .comparison-table {
+                font-size: 14px;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -28,41 +232,400 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState } = React;
+        const { useState, useEffect, useRef } = React;
 
         function Dashboard() {
+            const [clinics, setClinics] = useState([]);
+            const [filteredClinics, setFilteredClinics] = useState([]);
+            const [selectedCategory, setSelectedCategory] = useState('all');
+            const [currentPage, setCurrentPage] = useState(1);
+            const [showClinicModal, setShowClinicModal] = useState(false);
+            const [selectedClinic, setSelectedClinic] = useState(null);
             const [showContactForm, setShowContactForm] = useState(false);
             const [reportType, setReportType] = useState('');
-            const [selectedClinic, setSelectedClinic] = useState(null);
-            const [showClinicModal, setShowClinicModal] = useState(false);
-            const [contactData, setContactData] = useState({ name: '', email: '', whatsapp: '', clinicName: '' });
-            const [currentPage, setCurrentPage] = useState(1);
+            const [contactData, setContactData] = useState({
+                name: '',
+                email: '',
+                whatsapp: '',
+                clinicName: ''
+            });
+            const [showHuellaDigital, setShowHuellaDigital] = useState(false);
+            const [huellaClinic, setHuellaClinic] = useState(null);
+            const [isSubmitting, setIsSubmitting] = useState(false);
+            const itemsPerPage = 10;
+
+            // Deep linking: detectar hash en URL y abrir modal automáticamente
+            useEffect(() => {
+                const hash = window.location.hash;
+                if (hash && hash.startsWith('#clinica-')) {
+                    const rankNumber = parseInt(hash.replace('#clinica-', ''));
+                    const clinic = clinicsData.find(c => c.rank === rankNumber);
+                    if (clinic && clinic.rank >= 6 && clinic.rank <= 20) {
+                        setTimeout(() => {
+                            setHuellaClinic(clinic);
+                            setShowHuellaDigital(true);
+                            // Scroll to top when modal opens
+                            window.scrollTo(0, 0);
+                        }, 500); // pequeño delay para que el dashboard cargue primero
+                    }
+                }
+            }, []);
 
             const clinicsData = [
-                { id: 1, name: "Clínica Dental San Martín", rating: 5.0, reviews: 106, score: 4.890, rank: 1, acceso: true, familia: true, ortodoncia: true, urgencias: true, horario: "08:30 - 19:30", sabado: "09:00 - 14:00", direccion: "San Martín 450" },
-                { id: 2, name: "Clínica Bio Bio Dental", rating: 5.0, reviews: 99, score: 4.884, rank: 2, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "O'Higgins Poniente 77" },
-                { id: 3, name: "Clínica Dental Brelo - Concepción", rating: 4.9, reviews: 256, score: 4.858, rank: 3, acceso: true, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 14:00", direccion: "Cochrane 844" },
-                { id: 4, name: "Dra. Gabi Ibáñez", rating: 5.0, reviews: 55, score: 4.824, rank: 4, acceso: true, familia: false, ortodoncia: false, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "Lincoyán 444, Of. 313" },
-                { id: 5, name: "Münzenmayer Odontología", rating: 5.0, reviews: 49, score: 4.810, rank: 5, acceso: false, familia: false, ortodoncia: false, urgencias: false, horario: "09:30 - 19:00", sabado: "cerrado", direccion: "Anibal Pinto 131" },
-                { id: 6, name: "CentroDent", rating: 4.9, reviews: 104, score: 4.810, rank: 6, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:30 - 17:30", sabado: "cerrado", direccion: "Rengo 193, 2º piso" },
-                { id: 7, name: "Hola Dental Concepción", rating: 4.9, reviews: 96, score: 4.805, rank: 7, acceso: true, familia: false, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "09:00 - 13:00", direccion: "Tucapel 240" },
-                { id: 8, name: "KAI Estudio Dental", rating: 5.0, reviews: 47, score: 4.805, rank: 8, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "09:00 - 19:00", sabado: "10:00 - 14:00", direccion: "Rengo 94, oficina 51" },
-                { id: 9, name: "Dra Carolina Weason", rating: 5.0, reviews: 47, score: 4.805, rank: 9, acceso: false, familia: false, ortodoncia: false, urgencias: false, horario: "no informado", sabado: "no informado", direccion: "Lord Cochrane 815" },
-                { id: 10, name: "Clinica A+ Salud", rating: 5.0, reviews: 47, score: 4.805, rank: 10, acceso: true, familia: false, ortodoncia: true, urgencias: false, horario: "10:00 - 19:00", sabado: "10:00 - 17:00", direccion: "San Martín 654, Of. 31" },
-                { id: 11, name: "VR Clínica dental", rating: 5.0, reviews: 43, score: 4.795, rank: 11, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "no informado", sabado: "no informado", direccion: "Angol 436, Of. 402" },
-                { id: 12, name: "Clínica dental Experiencia Bliss", rating: 4.9, reviews: 76, score: 4.787, rank: 12, acceso: false, familia: false, ortodoncia: true, urgencias: true, horario: "09:30 - 20:30", sabado: "10:30 - 14:00", direccion: "Marina de Chile 2889" },
-                { id: 13, name: "Clínica Origen", rating: 5.0, reviews: 38, score: 4.779, rank: 13, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "10:00 - 19:00", sabado: "10:00 - 14:00", direccion: "Cochrane 635, Torre B" },
-                { id: 14, name: "Clínica KDENT", rating: 5.0, reviews: 34, score: 4.766, rank: 14, acceso: true, familia: true, ortodoncia: false, urgencias: true, horario: "09:00 - 19:00", sabado: "cerrado", direccion: "O'Higgins 630, Of. 403" },
-                { id: 15, name: "Dr. Pablo Cerda Ortodoncia", rating: 4.9, reviews: 58, score: 4.764, rank: 15, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "cerrado", direccion: "Barros Arana 162" },
-                { id: 16, name: "CLINICA DENTAL ALICURA o'higgins", rating: 4.8, reviews: 167, score: 4.754, rank: 16, acceso: true, familia: false, ortodoncia: true, urgencias: true, horario: "08:30 - 19:00", sabado: "09:00 - 14:00", direccion: "Av. O'Higgins 1628" },
-                { id: 17, name: "Dra Katherine Adasme", rating: 5.0, reviews: 29, score: 4.746, rank: 17, acceso: true, familia: false, ortodoncia: false, urgencias: false, horario: "09:00 - 20:00", sabado: "09:00 - 20:00", direccion: "Rengo 94, Oficina 41" },
-                { id: 18, name: "Doctor Ortodoncia CDO", rating: 4.9, reviews: 44, score: 4.738, rank: 18, acceso: false, familia: false, ortodoncia: true, urgencias: false, horario: "09:00 - 19:00", sabado: "09:00 - 14:00", direccion: "Barros Arana 492" },
-                { id: 19, name: "Clínica Dental Uno Salud Angol", rating: 4.8, reviews: 105, score: 4.733, rank: 19, acceso: true, familia: true, ortodoncia: false, urgencias: false, horario: "08:30 - 20:00", sabado: "09:00 - 14:00", direccion: "Angol 518" },
-                { id: 20, name: "Clínica Dental Mood", rating: 5.0, reviews: 25, score: 4.727, rank: 20, acceso: true, familia: true, ortodoncia: true, urgencias: false, horario: "09:00 - 20:00", sabado: "cerrado", direccion: "Cochrane 678" }
+                {
+                    rank: 1,
+                    name: "Clínica Dental San Martín",
+                    address: "San Martín 450",
+                    rating: 5.0,
+                    reviews: 106,
+                    bayesianScore: 4.890,
+                    change: "up",
+                    services: ["accessibility", "orthodontics"],
+                    hours: {
+                        weekdays: "08:30 - 19:30",
+                        saturday: "09:00 - 14:00"
+                    }
+                },
+                {
+                    rank: 2,
+                    name: "Clínica Bio Bio Dental",
+                    address: "O'Higgins Poniente 77",
+                    rating: 5.0,
+                    reviews: 99,
+                    bayesianScore: 4.884,
+                    change: "up",
+                    services: [],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "09:00 - 13:00"
+                    }
+                },
+                {
+                    rank: 3,
+                    name: "Clínica Dental Brelo - Concepción",
+                    address: "Cochrane 844",
+                    rating: 4.9,
+                    reviews: 256,
+                    bayesianScore: 4.858,
+                    change: "down",
+                    services: ["accessibility", "family", "orthodontics", "emergency"],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "09:00 - 14:00"
+                    }
+                },
+                {
+                    rank: 4,
+                    name: "Dra. Gabi Ibáñez",
+                    address: "Lincoyán 444, Of. 313",
+                    rating: 5.0,
+                    reviews: 55,
+                    bayesianScore: 4.824,
+                    change: "up",
+                    services: ["accessibility"],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "09:00 - 13:00"
+                    }
+                },
+                {
+                    rank: 5,
+                    name: "Münzenmayer Odontología",
+                    address: "Anibal Pinto 131",
+                    rating: 5.0,
+                    reviews: 49,
+                    bayesianScore: 4.810,
+                    change: "up",
+                    services: [],
+                    hours: {
+                        weekdays: "09:30 - 19:00",
+                        saturday: "Cerrado"
+                    }
+                },
+                {
+                    rank: 6,
+                    name: "CentroDent",
+                    address: "Rengo 193, 2º piso",
+                    rating: 4.9,
+                    reviews: 104,
+                    bayesianScore: 4.810,
+                    change: "down",
+                    services: ["orthodontics"],
+                    hours: {
+                        weekdays: "09:30 - 17:30",
+                        saturday: "Cerrado"
+                    }
+                },
+                {
+                    rank: 7,
+                    name: "Hola Dental Concepción",
+                    address: "Tucapel 240",
+                    rating: 4.9,
+                    reviews: 96,
+                    bayesianScore: 4.805,
+                    change: "down",
+                    services: ["accessibility", "emergency"],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "09:00 - 13:00"
+                    }
+                },
+                {
+                    rank: 8,
+                    name: "KAI Estudio Dental",
+                    address: "Rengo 94, oficina 51",
+                    rating: 5.0,
+                    reviews: 47,
+                    bayesianScore: 4.805,
+                    change: "up",
+                    services: ["accessibility", "orthodontics", "emergency"],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "10:00 - 14:00"
+                    }
+                },
+                {
+                    rank: 9,
+                    name: "Dra Carolina Weason",
+                    address: "Lord Cochrane 815",
+                    rating: 5.0,
+                    reviews: 47,
+                    bayesianScore: 4.805,
+                    change: "same",
+                    services: [],
+                    hours: {
+                        weekdays: "No informado",
+                        saturday: "No informado"
+                    }
+                },
+                {
+                    rank: 10,
+                    name: "Clinica A+ Salud",
+                    address: "San Martín 654, Of. 31",
+                    rating: 5.0,
+                    reviews: 47,
+                    bayesianScore: 4.805,
+                    change: "down",
+                    services: ["accessibility", "orthodontics"],
+                    hours: {
+                        weekdays: "10:00 - 19:00",
+                        saturday: "10:00 - 17:00"
+                    }
+                },
+                {
+                    rank: 11,
+                    name: "VR Clínica dental",
+                    address: "Angol 436, Of. 402",
+                    rating: 5.0,
+                    reviews: 43,
+                    bayesianScore: 4.795,
+                    change: "down",
+                    services: ["accessibility", "family", "emergency"],
+                    hours: {
+                        weekdays: "No informado",
+                        saturday: "No informado"
+                    }
+                },
+                {
+                    rank: 12,
+                    name: "Clínica dental Experiencia Bliss",
+                    address: "Marina de Chile 2889",
+                    rating: 4.9,
+                    reviews: 76,
+                    bayesianScore: 4.787,
+                    change: "down",
+                    services: ["orthodontics", "emergency"],
+                    hours: {
+                        weekdays: "09:30 - 20:30",
+                        saturday: "10:30 - 14:00"
+                    }
+                },
+                {
+                    rank: 13,
+                    name: "Clínica Origen",
+                    address: "Cochrane 635, Torre B",
+                    rating: 5.0,
+                    reviews: 38,
+                    bayesianScore: 4.779,
+                    change: "up",
+                    services: ["orthodontics"],
+                    hours: {
+                        weekdays: "10:00 - 19:00",
+                        saturday: "10:00 - 14:00"
+                    }
+                },
+                {
+                    rank: 14,
+                    name: "Clínica KDENT",
+                    address: "O'Higgins 630, Of. 403",
+                    rating: 5.0,
+                    reviews: 34,
+                    bayesianScore: 4.766,
+                    change: "down",
+                    services: ["accessibility", "family", "emergency"],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "Cerrado"
+                    }
+                },
+                {
+                    rank: 15,
+                    name: "Dr. Pablo Cerda Ortodoncia",
+                    address: "Barros Arana 162",
+                    rating: 4.9,
+                    reviews: 58,
+                    bayesianScore: 4.764,
+                    change: "same",
+                    services: ["orthodontics"],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "Cerrado"
+                    }
+                },
+                {
+                    rank: 16,
+                    name: "CLINICA DENTAL ALICURA o'higgins",
+                    address: "Av. O'Higgins 1628",
+                    rating: 4.8,
+                    reviews: 167,
+                    bayesianScore: 4.754,
+                    change: "down",
+                    services: ["accessibility", "orthodontics", "emergency"],
+                    hours: {
+                        weekdays: "08:30 - 19:00",
+                        saturday: "09:00 - 14:00"
+                    }
+                },
+                {
+                    rank: 17,
+                    name: "Dra Katherine Adasme",
+                    address: "Rengo 94, Oficina 41",
+                    rating: 5.0,
+                    reviews: 29,
+                    bayesianScore: 4.746,
+                    change: "up",
+                    services: ["accessibility"],
+                    hours: {
+                        weekdays: "09:00 - 20:00",
+                        saturday: "09:00 - 20:00"
+                    }
+                },
+                {
+                    rank: 18,
+                    name: "Doctor Ortodoncia CDO",
+                    address: "Barros Arana 492",
+                    rating: 4.9,
+                    reviews: 44,
+                    bayesianScore: 4.738,
+                    change: "down",
+                    services: ["orthodontics"],
+                    hours: {
+                        weekdays: "09:00 - 19:00",
+                        saturday: "09:00 - 14:00"
+                    }
+                },
+                {
+                    rank: 19,
+                    name: "Clínica Dental Uno Salud Angol",
+                    address: "Angol 518",
+                    rating: 4.8,
+                    reviews: 105,
+                    bayesianScore: 4.733,
+                    change: "down",
+                    services: ["accessibility", "family"],
+                    hours: {
+                        weekdays: "08:30 - 20:00",
+                        saturday: "09:00 - 14:00"
+                    }
+                },
+                {
+                    rank: 20,
+                    name: "Clínica Dental Mood",
+                    address: "Cochrane 678",
+                    rating: 5.0,
+                    reviews: 25,
+                    bayesianScore: 4.727,
+                    change: "same",
+                    services: ["accessibility", "family", "orthodontics"],
+                    hours: {
+                        weekdays: "09:00 - 20:00",
+                        saturday: "Cerrado"
+                    }
+                }
             ];
+
+            useEffect(() => {
+                setClinics(clinicsData);
+                setFilteredClinics(clinicsData);
+                console.log('Total de clínicas cargadas:', clinicsData.length);
+                console.log('Clínicas:', clinicsData.map(c => `#${c.rank} - ${c.name}`));
+            }, []);
+
+            const categories = [
+                { id: 'all', name: 'Todas', icon: '🏥', count: clinicsData.length },
+                { 
+                    id: 'accessibility', 
+                    name: 'Acceso Universal', 
+                    icon: '♿', 
+                    count: 12
+                },
+                { 
+                    id: 'family', 
+                    name: 'Atención Familiar', 
+                    icon: '👨‍👩‍👧‍👦', 
+                    count: 5
+                },
+                { 
+                    id: 'orthodontics', 
+                    name: 'Ortodoncia', 
+                    icon: '🦷', 
+                    count: 11
+                },
+                { 
+                    id: 'emergency', 
+                    name: 'Urgencias', 
+                    icon: '🚨', 
+                    count: 7
+                }
+            ];
+
+            useEffect(() => {
+                if (selectedCategory === 'all') {
+                    setFilteredClinics(clinics);
+                } else {
+                    setFilteredClinics(clinics.filter(clinic => 
+                        clinic.services.includes(selectedCategory)
+                    ));
+                }
+                setCurrentPage(1);
+            }, [selectedCategory, clinics]);
+
+            const totalPages = Math.ceil(filteredClinics.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentClinics = filteredClinics.slice(startIndex, endIndex);
+
+            const getRankBadgeColor = (rank) => {
+                if (rank === 1) return 'bg-yellow-400 text-yellow-900';
+                if (rank === 2) return 'bg-gray-300 text-gray-900';
+                if (rank === 3) return 'bg-amber-600 text-white';
+                if (rank <= 10) return 'bg-blue-500 text-white';
+                return 'bg-gray-500 text-white';
+            };
+
+            const getChangeIcon = (change) => {
+                if (change === 'up') return '↗️';
+                if (change === 'down') return '↘️';
+                return '➡️';
+            };
 
             const handleContactSubmit = async (e) => {
                 e.preventDefault();
+                
+                // Prevenir múltiples envíos
+                if (isSubmitting) return;
+                
+                setIsSubmitting(true);
                 
                 const formData = {
                     timestamp: new Date().toISOString(),
@@ -78,425 +641,703 @@
                     await fetch('https://script.google.com/macros/s/AKfycbyJMrK-cqWbo_bV5lTZloELoLIIqxdkzESTZZc2xfVFSATACIoTRRdELuaEnukVpmdP/exec', {
                         method: 'POST',
                         mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
                         body: JSON.stringify(formData)
                     });
-                    
-                    alert(`¡Solicitud enviada exitosamente!\n\nRecibirás tu Informe Premium en las próximas 24 horas.\n\nTe contactaremos al WhatsApp: ${contactData.whatsapp}`);
-                } catch (error) {
-                    alert('Solicitud enviada. Te contactaremos pronto.');
-                } finally {
-                    setContactData({ name: '', email: '', whatsapp: '', clinicName: '' });
+
+                    alert('¡Solicitud enviada! Te contactaremos por WhatsApp pronto.');
                     setShowContactForm(false);
+                    setContactData({ name: '', email: '', whatsapp: '', clinicName: '' });
                     setReportType('');
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Hubo un error. Por favor intenta nuevamente.');
+                } finally {
+                    setIsSubmitting(false);
                 }
             };
 
-            const getRankColor = (rank) => {
-                if (rank === 1) return 'bg-yellow-500';
-                if (rank === 2) return 'bg-gray-400';
-                if (rank === 3) return 'bg-amber-600';
-                if (rank <= 10) return 'bg-blue-500';
-                return 'bg-slate-400';
-            };
+            // FUNCIÓN PARA RENDERIZAR CONTENIDO DINÁMICO DE HUELLA DIGITAL
+            const renderHuellaContent = () => {
+                if (!huellaClinic) return null;
 
-            const getChangeIndicator = (rank) => {
-                const changes = {
-                    1: { type: 'up', from: 2, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    2: { type: 'up', from: 3, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    3: { type: 'down', from: 1, color: 'bg-red-400', icon: '↘️', text: '-2' },
-                    4: { type: 'up', from: 5, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    5: { type: 'up', from: 6, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    6: { type: 'up', from: 12, color: 'bg-green-500', icon: '↗️', text: '+6' },
-                    7: { type: 'down', from: 4, color: 'bg-red-400', icon: '↘️', text: '-3' },
-                    8: { type: 'down', from: 7, color: 'bg-red-400', icon: '↘️', text: '-1' },
-                    9: { type: 'up', from: 10, color: 'bg-green-500', icon: '↗️', text: '+1' },
-                    10: { type: 'up', from: 14, color: 'bg-green-500', icon: '↗️', text: '+4' },
-                    11: { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' },
-                    12: { type: 'down', from: 9, color: 'bg-red-400', icon: '↘️', text: '-3' },
-                    13: { type: 'up', from: 15, color: 'bg-green-500', icon: '↗️', text: '+2' },
-                    14: { type: 'up', from: 18, color: 'bg-green-500', icon: '↗️', text: '+4' },
-                    15: { type: 'down', from: 13, color: 'bg-red-400', icon: '↘️', text: '-2' },
-                    16: { type: 'down', from: 8, color: 'bg-red-400', icon: '↘️', text: '-8' },
-                    17: { type: 'down', from: 16, color: 'bg-red-400', icon: '↘️', text: '-1' },
-                    18: { type: 'down', from: 17, color: 'bg-red-400', icon: '↘️', text: '-1' },
-                    19: { type: 'new', from: 21, color: 'bg-blue-500', icon: '🆕', text: 'NEW' },
-                    20: { type: 'down', from: 19, color: 'bg-red-400', icon: '↘️', text: '-1' }
-                };
+                const rank = huellaClinic.rank;
                 
-                return changes[rank] || { type: 'same', color: 'bg-gray-400', icon: '➡️', text: '=' };
+                // PERFIL 1: Rating 5.0 perfecto (ranks 8, 9, 10, 11, 13, 14, 17, 20)
+                const perfectRatingClinics = [8, 9, 10, 11, 13, 14, 17, 20];
+                
+                // PERFIL 2: Rating 4.9 o 4.8 (ranks 6, 7, 12, 15, 16, 18, 19)
+                const nearPerfectClinics = [6, 7, 12, 15, 16, 18, 19];
+
+                if (perfectRatingClinics.includes(rank)) {
+                    // CONTENIDO PARA CLÍNICAS CON RATING 5.0
+                    return (
+                        <>
+                            {/* MÉTRICAS CLAVE */}
+                            <div className="huella-section">
+                                <h2 className="section-title">📊 Métricas Clave</h2>
+                                <div className="metrics-grid">
+                                    <div className="metric-card">
+                                        <div className="metric-value">{huellaClinic.bayesianScore.toFixed(2)}</div>
+                                        <div className="metric-label">Score Bayesiano</div>
+                                    </div>
+                                    <div className="metric-card">
+                                        <div className="metric-value">{huellaClinic.reviews}</div>
+                                        <div className="metric-label">Reseñas Totales</div>
+                                    </div>
+                                    <div className="metric-card">
+                                        <div className="metric-value">#{huellaClinic.rank}</div>
+                                        <div className="metric-label">Posición</div>
+                                    </div>
+                                    <div className="metric-card">
+                                        <div className="metric-value">{((huellaClinic.rank / 160) * 100).toFixed(1)}%</div>
+                                        <div className="metric-label">Top Percentil</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* ANÁLISIS COMPETITIVO */}
+                            <div className="huella-section">
+                                <h2 className="section-title">🎯 Análisis Competitivo</h2>
+                                
+                                <div className="insight-box">
+                                    <div className="insight-title">✅ Fortaleza Principal</div>
+                                    <div className="insight-text">
+                                        Cuentas con un <strong>rating perfecto de 5.0</strong>, lo que refleja una experiencia del paciente excepcional. 
+                                        Esto te coloca entre las clínicas con mejor reputación cualitativa de Concepción.
+                                    </div>
+                                </div>
+
+                                    <div className="insight-box warning">
+                                    <div className="insight-title">⚠️ Oportunidad de Crecimiento</div>
+                                    <div className="insight-text">
+                                        Con <strong>{huellaClinic.reviews} reseñas</strong>, tu volumen de opiniones es bajo comparado con las clínicas del Top 5, 
+                                        que promedian 113 reseñas. <strong>Aumentar tu volumen de reseñas</strong> es la clave para ascender en el ranking.
+                                    </div>
+                                </div>
+
+                                <div className="insight-box">
+                                    <div className="insight-title">🎯 Estrategia Recomendada</div>
+                                    <div className="insight-text">
+                                        <strong>Mantén la excelencia operacional</strong> que te ha dado un 5.0 perfecto. Paralelamente, 
+                                        <strong> implementa un sistema de solicitud de reseñas post-atención</strong>. Con tu nivel de satisfacción, 
+                                        cada paciente que dejes una reseña será positiva y fortalecerá tu posición.
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* COMPARACIÓN CON TOP 5 */}
+                            <div className="huella-section">
+                                <h2 className="section-title">📈 Comparación con el Top 5</h2>
+                                <table className="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Clínica</th>
+                                            <th>Score</th>
+                                            <th>Reseñas</th>
+                                            <th>Gap</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>#1 - San Martín</strong></td>
+                                            <td>4.89</td>
+                                            <td>106</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#2 - Bio Bio Dental</strong></td>
+                                            <td>4.88</td>
+                                            <td>99</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#5 - Münzenmayer</strong></td>
+                                            <td>4.81</td>
+                                            <td>49</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr className="highlight-you">
+                                            <td><strong>#{huellaClinic.rank} - {huellaClinic.name}</strong></td>
+                                            <td>{huellaClinic.bayesianScore.toFixed(2)}</td>
+                                            <td>{huellaClinic.reviews}</td>
+                                            <td>TÚ ESTÁS AQUÍ</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p style={{fontSize: '14px', color: '#6b7280', marginTop: '10px'}}>
+                                    💡 <strong>Insight:</strong> Con tu rating de 5.0, estás muy cerca del Top 5. 
+                                    Aumentar tu volumen de reseñas te permitirá competir directamente por el Top 3.
+                                </p>
+                            </div>
+
+                            {/* PLAN DE ACCIÓN */}
+                            <div className="huella-section">
+                                <h2 className="section-title">🚀 Plan de Acción para Escalar</h2>
+                                <div style={{background: '#f9fafb', padding: '25px', borderRadius: '12px', border: '2px solid #e5e7eb'}}>
+                                    <h3 style={{fontSize: '18px', fontWeight: '700', marginBottom: '15px', color: '#1f2937'}}>
+                                        🎯 Meta: Alcanzar el Top 5 en 90 días
+                                    </h3>
+                                    <ul style={{listStyle: 'none', padding: 0}}>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Semana 1-2:</strong> Implementar QR en recepción para solicitar reseñas post-atención
+                                        </li>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Semana 3-6:</strong> Enviar mensaje de agradecimiento con link de reseña 24h después de cada cita
+                                        </li>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Semana 7-12:</strong> Monitorear semanalmente el crecimiento y ajustar estrategia
+                                        </li>
+                                    </ul>
+                                    <div style={{marginTop: '20px', padding: '15px', background: 'white', borderRadius: '8px', border: '1px solid #d1d5db'}}>
+                                        <p style={{margin: 0, fontSize: '14px', color: '#374151'}}>
+                                            📊 <strong>Proyección:</strong> Si consigues 2-3 reseñas semanales, en 12 semanas tendrás 
+                                            <strong> {huellaClinic.reviews + 30} reseñas</strong> y tu score bayesiano subiría a 
+                                            <strong> ~4.85</strong>, colocándote cerca del <strong>Top 5</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* CTA */}
+                            <div className="cta-section">
+                                <span className="emoji-large">📊</span>
+                                <h3>¿Quieres un análisis más profundo?</h3>
+                                <p style={{fontSize: '16px', marginBottom: '20px', opacity: 0.95}}>
+                                    Solicita tu <strong>Informe Premium Completo</strong> con análisis de sentimiento, 
+                                    benchmarking detallado y roadmap personalizado mes a mes.
+                                </p>
+                                <a href="#" className="cta-button" onClick={(e) => {
+                                    e.preventDefault();
+                                    setShowHuellaDigital(false);
+                                    setReportType('clinic');
+                                    setShowContactForm(true);
+                                    setContactData({...contactData, clinicName: huellaClinic.name});
+                                }}>
+                                    📈 Solicitar Informe Premium
+                                </a>
+                                <p style={{fontSize: '13px', marginTop: '15px', opacity: 0.8}}>
+                                    💰 Precio de lanzamiento: <strong>$19.999</strong> (antes $49.999)
+                                </p>
+                            </div>
+                        </>
+                    );
+                } else if (nearPerfectClinics.includes(rank)) {
+                    // CONTENIDO PARA CLÍNICAS CON RATING 4.9
+                    return (
+                        <>
+                            {/* MÉTRICAS CLAVE */}
+                            <div className="huella-section">
+                                <h2 className="section-title">📊 Métricas Clave</h2>
+                                <div className="metrics-grid">
+                                    <div className="metric-card">
+                                        <div className="metric-value">{huellaClinic.bayesianScore.toFixed(2)}</div>
+                                        <div className="metric-label">Score Bayesiano</div>
+                                    </div>
+                                    <div className="metric-card">
+                                        <div className="metric-value">{huellaClinic.reviews}</div>
+                                        <div className="metric-label">Reseñas Totales</div>
+                                    </div>
+                                    <div className="metric-card">
+                                        <div className="metric-value">#{huellaClinic.rank}</div>
+                                        <div className="metric-label">Posición</div>
+                                    </div>
+                                    <div className="metric-card">
+                                        <div className="metric-value">{((huellaClinic.rank / 160) * 100).toFixed(1)}%</div>
+                                        <div className="metric-label">Top Percentil</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* ANÁLISIS COMPETITIVO */}
+                            <div className="huella-section">
+                                <h2 className="section-title">🎯 Análisis Competitivo</h2>
+                                
+                                <div className="insight-box">
+                                    <div className="insight-title">✅ Fortalezas Principales</div>
+                                    <div className="insight-text">
+                                        Con <strong>{huellaClinic.reviews} reseñas</strong> y un <strong>rating de {huellaClinic.rating}</strong>, 
+                                        demuestras solidez tanto en volumen como en calidad. Tu combinación de escala y satisfacción 
+                                        te posiciona competitivamente en el mercado.
+                                    </div>
+                                </div>
+
+                                <div className="insight-box warning">
+                                    <div className="insight-title">⚠️ Oportunidad Crítica</div>
+                                    <div className="insight-text">
+                                        Tu rating de <strong>4.9</strong> indica que aproximadamente <strong>el 10% de tus pacientes</strong> 
+                                        no están completamente satisfechos. Identificar y resolver estos casos específicos puede ser la diferencia 
+                                        entre mantenerte donde estás y <strong>ascender al Top 5</strong>.
+                                    </div>
+                                </div>
+
+                                <div className="insight-box">
+                                    <div className="insight-title">🎯 Estrategia Dual Recomendada</div>
+                                    <div className="insight-text">
+                                        <strong>1) Analiza tus reseñas negativas/neutrales:</strong> Identifica patrones comunes (tiempos de espera, 
+                                        comunicación, costos) y trabaja en resolver esos puntos.<br/><br/>
+                                        <strong>2) Implementa recuperación proactiva:</strong> Contacta a pacientes insatisfechos para resolver 
+                                        sus inquietudes. Muchos actualizarán su reseña tras una buena experiencia de servicio post-atención.
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* COMPARACIÓN CON TOP 5 */}
+                            <div className="huella-section">
+                                <h2 className="section-title">📈 Comparación con el Top 5</h2>
+                                <table className="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Clínica</th>
+                                            <th>Score</th>
+                                            <th>Reseñas</th>
+                                            <th>Rating</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>#1 - San Martín</strong></td>
+                                            <td>4.89</td>
+                                            <td>106</td>
+                                            <td>5.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#3 - Brelo</strong></td>
+                                            <td>4.86</td>
+                                            <td>256</td>
+                                            <td>4.9</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#5 - Münzenmayer</strong></td>
+                                            <td>4.81</td>
+                                            <td>49</td>
+                                            <td>5.0</td>
+                                        </tr>
+                                        <tr className="highlight-you">
+                                            <td><strong>#{huellaClinic.rank} - {huellaClinic.name}</strong></td>
+                                            <td>{huellaClinic.bayesianScore.toFixed(2)}</td>
+                                            <td>{huellaClinic.reviews}</td>
+                                            <td>{huellaClinic.rating}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p style={{fontSize: '14px', color: '#6b7280', marginTop: '10px'}}>
+                                    💡 <strong>Insight:</strong> La diferencia entre tú y el Top 5 es mínima: 
+                                    <strong> {Math.abs(4.81 - huellaClinic.bayesianScore).toFixed(3)} puntos</strong>. 
+                                    Mejorar tu rating de 4.9 a 5.0 te colocaría automáticamente en el Top 5.
+                                </p>
+                            </div>
+
+                            {/* PLAN DE ACCIÓN */}
+                            <div className="huella-section">
+                                <h2 className="section-title">🚀 Plan de Acción para Ascender</h2>
+                                <div style={{background: '#f9fafb', padding: '25px', borderRadius: '12px', border: '2px solid #e5e7eb'}}>
+                                    <h3 style={{fontSize: '18px', fontWeight: '700', marginBottom: '15px', color: '#1f2937'}}>
+                                        🎯 Meta: Alcanzar el Top 5 mejorando tu rating
+                                    </h3>
+                                    <ul style={{listStyle: 'none', padding: 0}}>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Paso 1:</strong> Descarga todas tus reseñas y filtra las de 4 estrellas o menos
+                                        </li>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Paso 2:</strong> Identifica los 3 problemas más mencionados en reseñas negativas
+                                        </li>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Paso 3:</strong> Implementa mejoras operacionales para resolver esos 3 problemas
+                                        </li>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Paso 4:</strong> Contacta proactivamente a pacientes con reseñas negativas recientes
+                                        </li>
+                                        <li style={{marginBottom: '12px', fontSize: '15px'}}>
+                                            <strong>Paso 5:</strong> Aumenta el volumen de reseñas positivas para diluir las negativas
+                                        </li>
+                                    </ul>
+                                    <div style={{marginTop: '20px', padding: '15px', background: 'white', borderRadius: '8px', border: '1px solid #d1d5db'}}>
+                                        <p style={{margin: 0, fontSize: '14px', color: '#374151'}}>
+                                            📊 <strong>Proyección:</strong> Si logras subir tu rating de <strong>4.9 a 5.0</strong> y 
+                                            mantienes tu volumen de {huellaClinic.reviews} reseñas, tu score bayesiano subiría a 
+                                            <strong> ~4.83-4.85</strong>, acercándote significativamente al <strong>Top 5</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* CTA */}
+                            <div className="cta-section">
+                                <span className="emoji-large">🔍</span>
+                                <h3>¿Quieres saber exactamente qué dicen tus reseñas negativas?</h3>
+                                <p style={{fontSize: '16px', marginBottom: '20px', opacity: 0.95}}>
+                                    Solicita tu <strong>Informe Premium con Análisis de Sentimiento</strong>. Te mostraremos 
+                                    los problemas exactos que mencionan tus pacientes insatisfechos y cómo resolverlos.
+                                </p>
+                                <a href="#" className="cta-button" onClick={(e) => {
+                                    e.preventDefault();
+                                    setShowHuellaDigital(false);
+                                    setReportType('clinic');
+                                    setShowContactForm(true);
+                                    setContactData({...contactData, clinicName: huellaClinic.name});
+                                }}>
+                                    📊 Solicitar Análisis Completo
+                                </a>
+                                <p style={{fontSize: '13px', marginTop: '15px', opacity: 0.8}}>
+                                    💰 Precio de lanzamiento: <strong>$19.999</strong> (antes $49.999)
+                                </p>
+                            </div>
+                        </>
+                    );
+                }
+
+                // Fallback genérico si el rank no está en ningún perfil
+                return (
+                    <div className="huella-section">
+                        <h2 className="section-title">📊 Información de la Clínica</h2>
+                        <p>Contenido en desarrollo para esta clínica.</p>
+                    </div>
+                );
             };
-
-            const renderStars = (rating) => {
-                return Array.from({ length: 5 }, (_, i) => (
-                    <svg key={i} className={`w-3 h-3 sm:w-4 sm:h-4 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                ));
-            };
-
-            const accesoUniversal = clinicsData.filter(c => c.acceso);
-            const atencionFamiliar = clinicsData.filter(c => c.familia);
-            const ortodoncia = clinicsData.filter(c => c.ortodoncia);
-            const urgencias = clinicsData.filter(c => c.urgencias);
-
-            const itemsPerPage = 10;
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const currentClinics = clinicsData.slice(startIndex, endIndex);
-            const totalPages = Math.ceil(clinicsData.length / itemsPerPage);
 
             return (
-                <div className="min-h-screen bg-gray-50">
-                    {/* HEADER RESPONSIVO */}
-                    <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8 sm:py-12 lg:py-16">
+                <div className="min-h-screen">
+                    {/* HEADER */}
+                    <header className="bg-gradient-to-r from-blue-600 via-purple-600 to-yellow-500 text-white py-8 sm:py-16">
                         <div className="max-w-6xl mx-auto px-4 text-center">
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4">🦷 Ranking Clínicas Dentales</h1>
-                            <h2 className="text-xl sm:text-2xl md:text-3xl mb-4 sm:mb-6">Concepción, Chile</h2>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+                                🦷 Ranking Clínicas Dentales Concepción
+                            </h1>
+                            <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 opacity-90">
+                                Las 20 mejores clínicas según análisis bayesiano de reseñas
+                            </p>
                             <div className="bg-white bg-opacity-20 rounded-lg p-4 sm:p-6 inline-block">
-                                <p className="text-sm sm:text-lg md:text-xl font-semibold">📅 Fecha de corte: 12/10/2025</p>
-                                <p className="text-sm sm:text-lg md:text-xl font-semibold">🔄 Próxima actualización: 09/11/2025</p>
+                                <p className="text-base sm:text-xl font-semibold">📅 Fecha de corte: 12/10/2025</p>
+                                <p className="text-base sm:text-xl font-semibold">🔄 Próxima actualización: 09/11/2025</p>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* DISCLAIMER DE DATOS */}
+                    <div className="max-w-6xl mx-auto px-4 mt-6">
+                        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg">
+                            <p className="text-sm text-blue-900">
+                                <strong>ℹ️ Nota:</strong> Este ranking no almacena datos de Google. Toda la información se genera en tiempo real mediante consultas a Google Maps.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* STATS */}
+                    <div className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md text-center">
+                                <div className="text-2xl sm:text-3xl font-bold text-blue-600">160</div>
+                                <div className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">Clínicas Analizadas</div>
+                            </div>
+                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md text-center">
+                                <div className="text-2xl sm:text-3xl font-bold text-purple-600">3,600+</div>
+                                <div className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">Reseñas Construyeron el Ranking</div>
+                            </div>
+                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md text-center">
+                                <div className="text-2xl sm:text-3xl font-bold text-yellow-600">4.80</div>
+                                <div className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">Score Promedio Top 20</div>
+                            </div>
+                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md text-center">
+                                <div className="text-2xl sm:text-3xl font-bold text-green-600">Top 12%</div>
+                                <div className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">Elite del Mercado</div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
-                        {/* METODOLOGÍA - RESPONSIVO */}
-                        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
-                            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800">📊 Metodología de Ranking</h3>
-                            <p className="text-gray-600 text-sm sm:text-base lg:text-lg mb-4">
-                                Este ranking utiliza un <strong>sistema bayesiano</strong> que combina la valoración promedio de Google Maps 
-                                con el número total de reseñas, aplicando un factor de corrección que favorece tanto la calidad como la cantidad de opiniones.
-                            </p>
-                            <div className="bg-green-50 border-l-4 border-green-400 p-3 sm:p-4 mb-4 sm:mb-6">
-                                <p className="text-green-800 text-sm sm:text-base">
-                                    <strong>🔄 Datos en tiempo real:</strong> No almacenamos datos de Google Maps. El cálculo se realiza 
-                                    directamente en la fecha de actualización del ranking o en el momento en que solicitas tu informe, 
-                                    garantizando que la información sea siempre fresca y actualizada.
-                                </p>
-                            </div>
-                            
-                            {/* DESTACADOS - GRID RESPONSIVO */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                                <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-3 sm:p-4 rounded-lg">
-                                    <div className="flex items-center space-x-2">
-                                        <span className="text-xl sm:text-2xl">🏆</span>
-                                        <div>
-                                            <p className="font-bold text-sm sm:text-base lg:text-lg">NUEVO LÍDER</p>
-                                            <p className="text-xs sm:text-sm">Clínica Dental San Martín (#2 → #1)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-3 sm:p-4 rounded-lg">
-                                    <div className="flex items-center space-x-2">
-                                        <span className="text-xl sm:text-2xl">📈</span>
-                                        <div>
-                                            <p className="font-bold text-sm sm:text-base lg:text-lg">MAYOR ASCENSO</p>
-                                            <p className="text-xs sm:text-sm">CentroDent (+6 posiciones)</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="bg-blue-50 border-l-4 border-blue-400 p-3 sm:p-4">
-                                <p className="text-blue-800 text-sm sm:text-base">
-                                    <strong>🔄 Actualización Octubre 2025:</strong> San Martín lidera con servicio completo. 
-                                    CentroDent logra el mayor ascenso (+6). ALICURA registra el mayor descenso (-8). 
-                                    🆕 <strong>Clínica Uno Salud Angol</strong> ingresa al TOP 20 en posición #19.
-                                </p>
+                    {/* CATEGORIES */}
+                    <div className="max-w-6xl mx-auto px-4 mb-6 sm:mb-8">
+                        <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md">
+                            <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Filtrar por Servicios</h2>
+                            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 sm:gap-3">
+                                {categories.map(cat => (
+                                    <button
+                                        key={cat.id}
+                                        onClick={() => setSelectedCategory(cat.id)}
+                                        className={`px-3 sm:px-4 py-2 rounded-lg font-semibold transition-all text-sm sm:text-base ${
+                                            selectedCategory === cat.id
+                                                ? 'bg-blue-600 text-white shadow-lg'
+                                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                        }`}
+                                    >
+                                        {cat.icon} {cat.name} ({cat.count})
+                                    </button>
+                                ))}
                             </div>
                         </div>
+                    </div>
 
-                        {/* ESTADÍSTICAS - GRID RESPONSIVO */}
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8">
-                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center">
-                                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-1 sm:mb-2">160</div>
-                                <div className="text-xs sm:text-sm lg:text-base text-gray-600 font-medium">Clínicas Analizadas</div>
-                            </div>
-                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center">
-                                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600 mb-1 sm:mb-2">20</div>
-                                <div className="text-xs sm:text-sm lg:text-base text-gray-600 font-medium">Top Ranking</div>
-                            </div>
-                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center">
-                                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-purple-600 mb-1 sm:mb-2">4.8</div>
-                                <div className="text-xs sm:text-sm lg:text-base text-gray-600 font-medium">Rating Promedio</div>
-                            </div>
-                            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg text-center">
-                                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-600 mb-1 sm:mb-2">2.5K+</div>
-                                <div className="text-xs sm:text-sm lg:text-base text-gray-600 font-medium">Reseñas Totales</div>
-                            </div>
-                        </div>
-
-                        {/* SERVICIOS - GRID RESPONSIVO */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                            <div className="bg-white p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="flex items-center mb-2 sm:mb-3">
-                                    <span className="text-2xl sm:text-3xl mr-3">♿</span>
-                                    <div>
-                                        <h4 className="font-bold text-sm sm:text-base text-gray-800">Acceso Universal</h4>
-                                        <p className="text-xl sm:text-2xl font-bold text-blue-600">{accesoUniversal.length}</p>
-                                    </div>
-                                </div>
-                                <p className="text-xs sm:text-sm text-gray-600">Clínicas con accesibilidad</p>
-                            </div>
-                            <div className="bg-white p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="flex items-center mb-2 sm:mb-3">
-                                    <span className="text-2xl sm:text-3xl mr-3">👨‍👩‍👧‍👦</span>
-                                    <div>
-                                        <h4 className="font-bold text-sm sm:text-base text-gray-800">Atención Familiar</h4>
-                                        <p className="text-xl sm:text-2xl font-bold text-green-600">{atencionFamiliar.length}</p>
-                                    </div>
-                                </div>
-                                <p className="text-xs sm:text-sm text-gray-600">Atención para toda la familia</p>
-                            </div>
-                            <div className="bg-white p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="flex items-center mb-2 sm:mb-3">
-                                    <span className="text-2xl sm:text-3xl mr-3">🦷</span>
-                                    <div>
-                                        <h4 className="font-bold text-sm sm:text-base text-gray-800">Ortodoncia</h4>
-                                        <p className="text-xl sm:text-2xl font-bold text-purple-600">{ortodoncia.length}</p>
-                                    </div>
-                                </div>
-                                <p className="text-xs sm:text-sm text-gray-600">Servicio de ortodoncia</p>
-                            </div>
-                            <div className="bg-white p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="flex items-center mb-2 sm:mb-3">
-                                    <span className="text-2xl sm:text-3xl mr-3">🚨</span>
-                                    <div>
-                                        <h4 className="font-bold text-sm sm:text-base text-gray-800">Urgencias</h4>
-                                        <p className="text-xl sm:text-2xl font-bold text-red-600">{urgencias.length}</p>
-                                    </div>
-                                </div>
-                                <p className="text-xs sm:text-sm text-gray-600">Atención de urgencias</p>
-                            </div>
-                        </div>
-
-                        {/* BOTONES DE INFORMES - RESPONSIVOS */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                            <button
-                                onClick={() => { setReportType('personal'); setShowContactForm(true); }}
-                                className="bg-gradient-to-r from-blue-500 to-blue-700 text-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
-                            >
-                                <div className="flex flex-col items-center">
-                                    <span className="text-3xl sm:text-4xl mb-2">👤</span>
-                                    <h3 className="text-lg sm:text-xl font-bold mb-2">Informe Personal</h3>
-                                    <p className="text-xs sm:text-sm opacity-90 mb-2">Encuentra tu clínica ideal</p>
-                                    <div className="text-base sm:text-lg">
-                                        <span className="line-through opacity-60">$49.999</span> 
-                                        <span className="font-bold ml-2">$19.999</span>
-                                    </div>
-                                </div>
-                            </button>
-                            
-                            <button
-                                onClick={() => { setReportType('clinic'); setShowContactForm(true); }}
-                                className="bg-gradient-to-r from-purple-500 to-purple-700 text-white p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
-                            >
-                                <div className="flex flex-col items-center">
-                                    <span className="text-3xl sm:text-4xl mb-2">🏥</span>
-                                    <h3 className="text-lg sm:text-xl font-bold mb-2">Informe para Clínicas</h3>
-                                    <p className="text-xs sm:text-sm opacity-90 mb-2">Análisis competitivo completo</p>
-                                    <div className="text-base sm:text-lg">
-                                        <span className="line-through opacity-60">$49.999</span> 
-                                        <span className="font-bold ml-2">$19.999</span>
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-
-                        {/* TABLA DE RANKING - RESPONSIVA */}
-                        <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-6 sm:mb-8">
-                            <div className="p-4 sm:p-6 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-                                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center">🏆 TOP 20 Clínicas Dentales</h2>
-                            </div>
-                            
-                            {/* Vista móvil: Cards */}
+                    {/* TABLE */}
+                    <div className="max-w-6xl mx-auto px-4 mb-8 sm:mb-12">
+                        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                            {/* VISTA MÓVIL - Cards */}
                             <div className="block lg:hidden">
-                                {currentClinics.map((clinic) => {
-                                    const change = getChangeIndicator(clinic.rank);
-                                    return (
-                                        <div 
-                                            key={clinic.id} 
-                                            className="border-b border-gray-200 p-4 hover:bg-gray-50 cursor-pointer"
-                                            onClick={() => { setSelectedClinic(clinic); setShowClinicModal(true); }}
-                                        >
-                                            <div className="flex items-start justify-between mb-2">
-                                                <div className="flex items-center gap-3">
-                                                    <div className={`${getRankColor(clinic.rank)} text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0`}>
-                                                        {clinic.rank}
-                                                    </div>
-                                                    <div className="flex-1 min-w-0">
-                                                        <h3 className="font-bold text-gray-800 text-sm sm:text-base break-words">{clinic.name}</h3>
-                                                        <p className="text-xs text-gray-500">{clinic.direccion}</p>
-                                                    </div>
-                                                </div>
+                                {currentClinics.map(clinic => (
+                                    <div key={clinic.rank} className="border-b border-gray-200 p-4 hover:bg-gray-50">
+                                        <div className="flex items-start justify-between mb-3">
+                                            <div className="flex items-center gap-3">
+                                                <span className={`px-3 py-1 rounded-lg font-bold text-sm ${getRankBadgeColor(clinic.rank)}`}>
+                                                    #{clinic.rank}
+                                                </span>
+                                                <span className="text-lg">{getChangeIcon(clinic.change)}</span>
                                             </div>
-                                            
-                                            <div className="flex items-center justify-between mt-2">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="flex">{renderStars(clinic.rating)}</div>
-                                                    <span className="text-sm font-semibold text-gray-700">{clinic.rating}</span>
-                                                    <span className="text-xs text-gray-500">({clinic.reviews})</span>
-                                                </div>
-                                                <div className={`${change.color} text-white px-2 py-1 rounded text-xs font-bold`}>
-                                                    {change.icon} {change.text}
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="flex flex-wrap gap-1 mt-2">
-                                                {clinic.acceso && <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">♿ Acceso</span>}
-                                                {clinic.familia && <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">👨‍👩‍👧‍👦 Familia</span>}
-                                                {clinic.ortodoncia && <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">🦷 Ortodoncia</span>}
-                                                {clinic.urgencias && <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">🚨 Urgencias</span>}
+                                            <div className="text-right">
+                                                <div className="text-xl font-bold text-blue-600">{clinic.bayesianScore.toFixed(2)}</div>
+                                                <div className="text-xs text-gray-500">Score Bayesiano</div>
                                             </div>
                                         </div>
-                                    );
-                                })}
+                                        
+                                        <h3 className="font-bold text-gray-800 text-base mb-2">{clinic.name}</h3>
+                                        <p className="text-sm text-gray-600 mb-3">{clinic.address}</p>
+                                        
+                                        <div className="grid grid-cols-2 gap-2 mb-3 text-sm">
+                                            <div>
+                                                <span className="text-gray-500">Rating Google:</span>
+                                                <div className="font-semibold">{clinic.rating} ⭐</div>
+                                            </div>
+                                            <div>
+                                                <span className="text-gray-500">Reseñas:</span>
+                                                <div className="font-semibold">{clinic.reviews}</div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex gap-2 mt-3">
+                                            {clinic.rank >= 6 && clinic.rank <= 20 && (
+                                                <button
+                                                    onClick={() => {
+                                                        setHuellaClinic(clinic);
+                                                        setShowHuellaDigital(true);
+                                                    }}
+                                                    className="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white py-2 px-3 rounded-lg font-bold text-sm hover:from-purple-700 hover:to-purple-900 transition-all"
+                                                >
+                                                    🔍 Huella Digital
+                                                </button>
+                                            )}
+                                            <button
+                                                onClick={() => {
+                                                    setSelectedClinic(clinic);
+                                                    setShowClinicModal(true);
+                                                }}
+                                                className="flex-1 bg-blue-600 text-white py-2 px-3 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all"
+                                            >
+                                                👁️ Ver Más Detalle
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
 
-                            {/* Vista desktop: Tabla */}
+                            {/* VISTA DESKTOP - Tabla */}
                             <div className="hidden lg:block table-scroll">
                                 <table className="w-full">
-                                    <thead className="bg-gray-50">
+                                    <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
                                         <tr>
-                                            <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Rank</th>
-                                            <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Clínica</th>
-                                            <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Rating</th>
-                                            <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Reseñas</th>
-                                            <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Score</th>
-                                            <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Cambio</th>
-                                            <th className="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase">Servicios</th>
+                                            <th className="px-6 py-4 text-left font-semibold">Ranking</th>
+                                            <th className="px-6 py-4 text-left font-semibold">Clínica</th>
+                                            <th className="px-6 py-4 text-center font-semibold">Score Bayesiano</th>
+                                            <th className="px-6 py-4 text-center font-semibold">Rating Google</th>
+                                            <th className="px-6 py-4 text-center font-semibold">Reseñas</th>
+                                            <th className="px-6 py-4 text-center font-semibold">Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="divide-y divide-gray-200">
-                                        {currentClinics.map((clinic) => {
-                                            const change = getChangeIndicator(clinic.rank);
-                                            return (
-                                                <tr 
-                                                    key={clinic.id} 
-                                                    className="hover:bg-gray-50 cursor-pointer transition-colors"
-                                                    onClick={() => { setSelectedClinic(clinic); setShowClinicModal(true); }}
-                                                >
-                                                    <td className="px-4 py-4">
-                                                        <div className={`${getRankColor(clinic.rank)} text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg`}>
-                                                            {clinic.rank}
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-4 py-4">
-                                                        <div className="font-semibold text-gray-800">{clinic.name}</div>
-                                                        <div className="text-sm text-gray-500">{clinic.direccion}</div>
-                                                    </td>
-                                                    <td className="px-4 py-4">
-                                                        <div className="flex items-center gap-2">
-                                                            <div className="flex">{renderStars(clinic.rating)}</div>
-                                                            <span className="font-semibold text-gray-700">{clinic.rating}</span>
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-4 py-4 text-center">
-                                                        <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                                                            {clinic.reviews}
+                                    <tbody>
+                                        {currentClinics.map((clinic, index) => (
+                                            <tr key={clinic.rank} className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-blue-50 transition-colors`}>
+                                                <td className="px-6 py-4">
+                                                    <div className="flex items-center gap-2">
+                                                        <span className={`px-3 py-1 rounded-lg font-bold ${getRankBadgeColor(clinic.rank)}`}>
+                                                            #{clinic.rank}
                                                         </span>
-                                                    </td>
-                                                    <td className="px-4 py-4 text-center">
-                                                        <span className="font-mono text-sm font-bold text-gray-700">{clinic.score.toFixed(3)}</span>
-                                                    </td>
-                                                    <td className="px-4 py-4 text-center">
-                                                        <span className={`${change.color} text-white px-3 py-1 rounded-full text-sm font-bold inline-flex items-center gap-1`}>
-                                                            {change.icon} {change.text}
-                                                        </span>
-                                                    </td>
-                                                    <td className="px-4 py-4">
-                                                        <div className="flex flex-wrap gap-1 justify-center">
-                                                            {clinic.acceso && <span className="text-xl" title="Acceso universal">♿</span>}
-                                                            {clinic.familia && <span className="text-xl" title="Atención familiar">👨‍👩‍👧‍👦</span>}
-                                                            {clinic.ortodoncia && <span className="text-xl" title="Ortodoncia">🦷</span>}
-                                                            {clinic.urgencias && <span className="text-xl" title="Urgencias">🚨</span>}
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            );
-                                        })}
+                                                        <span className="text-lg">{getChangeIcon(clinic.change)}</span>
+                                                    </div>
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    <div className="font-semibold text-gray-800">{clinic.name}</div>
+                                                    <div className="text-sm text-gray-600">{clinic.address}</div>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <div className="text-2xl font-bold text-blue-600">{clinic.bayesianScore.toFixed(2)}</div>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <div className="flex items-center justify-center gap-1">
+                                                        <span className="text-lg font-semibold">{clinic.rating}</span>
+                                                        <span className="text-yellow-500">⭐</span>
+                                                    </div>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <span className="font-semibold text-gray-700">{clinic.reviews}</span>
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    <div className="flex flex-col gap-2">
+                                                        {clinic.rank >= 6 && clinic.rank <= 20 && (
+                                                            <button
+                                                                onClick={() => {
+                                                                    setHuellaClinic(clinic);
+                                                                    setShowHuellaDigital(true);
+                                                                }}
+                                                                className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white py-2 px-4 rounded-lg font-bold text-sm hover:from-purple-700 hover:to-purple-900 transition-all shadow-md hover:shadow-lg"
+                                                            >
+                                                                🔍 Huella Digital
+                                                            </button>
+                                                        )}
+                                                        <button
+                                                            onClick={() => {
+                                                                setSelectedClinic(clinic);
+                                                                setShowClinicModal(true);
+                                                            }}
+                                                            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all"
+                                                        >
+                                                            👁️ Ver Más Detalle
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
 
-                        {/* PAGINACIÓN - RESPONSIVA */}
-                        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-8">
-                            <button
-                                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                                disabled={currentPage === 1}
-                                className="w-full sm:w-auto bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors"
-                            >
-                                ← Anterior
-                            </button>
-                            <div className="flex items-center gap-2">
-                                <span className="text-sm sm:text-base text-gray-700">Página</span>
-                                <span className="bg-blue-600 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base">
-                                    {currentPage}
-                                </span>
-                                <span className="text-sm sm:text-base text-gray-700">de {totalPages}</span>
-                            </div>
-                            <button
-                                onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                                disabled={currentPage === totalPages}
-                                className="w-full sm:w-auto bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors"
-                            >
-                                Siguiente →
-                            </button>
+                            {/* PAGINATION */}
+                            {totalPages > 1 && (
+                                <div className="bg-gray-50 px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-gray-200">
+                                    <div className="text-xs sm:text-sm text-gray-700">
+                                        Mostrando {startIndex + 1} a {Math.min(endIndex, filteredClinics.length)} de {filteredClinics.length} clínicas
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                                            disabled={currentPage === 1}
+                                            className="px-3 sm:px-4 py-2 bg-white border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors text-sm sm:text-base"
+                                        >
+                                            ← Anterior
+                                        </button>
+                                        <span className="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold text-sm sm:text-base">
+                                            {currentPage} / {totalPages}
+                                        </span>
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                                            disabled={currentPage === totalPages}
+                                            className="px-3 sm:px-4 py-2 bg-white border border-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100 transition-colors text-sm sm:text-base"
+                                        >
+                                            Siguiente →
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
 
-                    {/* MODAL DE CLÍNICA - RESPONSIVO */}
+                    {/* CTA SECTION - Solo para CLÍNICAS */}
+                    <div className="max-w-6xl mx-auto px-4 mb-8 sm:mb-12">
+                        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-xl p-6 sm:p-8 text-white text-center">
+                            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
+                                ¿Quieres saber cómo está tu clínica frente a la competencia?
+                            </h2>
+                            <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90">
+                                Obtén un informe completo con análisis bayesiano, benchmarking y recomendaciones estratégicas
+                            </p>
+                            <button
+                                onClick={() => {
+                                    setReportType('clinic');
+                                    setShowContactForm(true);
+                                }}
+                                className="bg-white text-blue-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-gray-100 transition-all inline-block shadow-lg hover:shadow-xl"
+                            >
+                                📊 Solicitar Análisis Competitivo
+                            </button>
+                            <p className="mt-4 text-xs sm:text-sm opacity-80">
+                                <span className="line-through">$49.999</span> <span className="text-xl sm:text-2xl font-bold ml-2">$19.999</span> 🎉 Precio de lanzamiento
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* MODAL DETALLE CLÍNICA */}
                     {showClinicModal && selectedClinic && (
-                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setShowClinicModal(false)}>
-                            <div className="bg-white rounded-xl max-w-2xl w-full modal-content p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
-                                <div className="flex justify-between items-start mb-4">
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowClinicModal(false)}>
+                            <div className="bg-white rounded-2xl max-w-2xl w-full modal-content p-6 sm:p-8" onClick={(e) => e.stopPropagation()}>
+                                <div className="flex justify-between items-start mb-4 sm:mb-6">
                                     <div>
-                                        <div className={`${getRankColor(selectedClinic.rank)} text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center font-bold text-xl sm:text-2xl mb-2`}>
-                                            #{selectedClinic.rank}
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <span className={`px-3 py-1 rounded-lg font-bold ${getRankBadgeColor(selectedClinic.rank)}`}>
+                                                #{selectedClinic.rank}
+                                            </span>
+                                            <span className="text-2xl">{getChangeIcon(selectedClinic.change)}</span>
                                         </div>
-                                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">{selectedClinic.name}</h2>
+                                        <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{selectedClinic.name}</h2>
                                     </div>
                                     <button 
                                         onClick={() => setShowClinicModal(false)}
-                                        className="text-gray-500 hover:text-gray-700 text-3xl sm:text-4xl font-bold leading-none"
+                                        className="text-gray-500 hover:text-gray-700 text-3xl font-bold"
                                     >
                                         ×
                                     </button>
                                 </div>
-                                
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-2 sm:gap-3">
-                                        <div className="flex">{renderStars(selectedClinic.rating)}</div>
-                                        <span className="text-lg sm:text-xl font-bold text-gray-700">{selectedClinic.rating}</span>
-                                        <span className="text-sm sm:text-base text-gray-500">({selectedClinic.reviews} reseñas)</span>
-                                    </div>
-                                    
-                                    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
-                                        <p className="text-sm sm:text-base"><strong>📍 Dirección:</strong> {selectedClinic.direccion}</p>
-                                        <p className="text-sm sm:text-base mt-2"><strong>🕐 Horario:</strong> {selectedClinic.horario}</p>
-                                        <p className="text-sm sm:text-base mt-2"><strong>📅 Sábados:</strong> {selectedClinic.sabado}</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h3 className="font-bold text-base sm:text-lg mb-2">Servicios disponibles:</h3>
-                                        <div className="flex flex-wrap gap-2">
-                                            {selectedClinic.acceso && <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">♿ Acceso Universal</span>}
-                                            {selectedClinic.familia && <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">👨‍👩‍👧‍👦 Atención Familiar</span>}
-                                            {selectedClinic.ortodoncia && <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">🦷 Ortodoncia</span>}
-                                            {selectedClinic.urgencias && <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">🚨 Urgencias</span>}
+
+                                <div className="space-y-4 sm:space-y-6">
+                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                                        <div className="bg-blue-50 p-3 sm:p-4 rounded-lg">
+                                            <div className="text-xs sm:text-sm text-blue-600 font-semibold mb-1">Score Bayesiano</div>
+                                            <div className="text-xl sm:text-2xl font-bold text-blue-700">{selectedClinic.bayesianScore.toFixed(2)}</div>
+                                        </div>
+                                        <div className="bg-yellow-50 p-3 sm:p-4 rounded-lg">
+                                            <div className="text-xs sm:text-sm text-yellow-600 font-semibold mb-1">Rating Google</div>
+                                            <div className="text-xl sm:text-2xl font-bold text-yellow-700">{selectedClinic.rating} ⭐</div>
+                                        </div>
+                                        <div className="bg-purple-50 p-3 sm:p-4 rounded-lg">
+                                            <div className="text-xs sm:text-sm text-purple-600 font-semibold mb-1">Reseñas</div>
+                                            <div className="text-xl sm:text-2xl font-bold text-purple-700">{selectedClinic.reviews}</div>
                                         </div>
                                     </div>
-                                    
+
+                                    <div>
+                                        <h3 className="font-bold text-gray-800 mb-2 text-base sm:text-lg">📍 Dirección</h3>
+                                        <p className="text-sm sm:text-base text-gray-600">{selectedClinic.address}</p>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="font-bold text-gray-800 mb-3 text-base sm:text-lg">🕐 Horarios de Atención</h3>
+                                        <div className="bg-gray-50 p-3 sm:p-4 rounded-lg space-y-2">
+                                            <div className="flex justify-between text-sm sm:text-base">
+                                                <span className="text-gray-600">Lunes a Viernes:</span>
+                                                <span className="font-semibold text-gray-800">{selectedClinic.hours.weekdays}</span>
+                                            </div>
+                                            <div className="flex justify-between text-sm sm:text-base">
+                                                <span className="text-gray-600">Sábado:</span>
+                                                <span className="font-semibold text-gray-800">{selectedClinic.hours.saturday}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {selectedClinic.services.length > 0 && (
+                                        <div>
+                                            <h3 className="font-bold text-gray-800 mb-3 text-base sm:text-lg">🏥 Servicios Especializados</h3>
+                                            <div className="flex flex-wrap gap-2">
+                                                {selectedClinic.services.includes('accessibility') && (
+                                                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">♿ Acceso Universal</span>
+                                                )}
+                                                {selectedClinic.services.includes('family') && (
+                                                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">👨‍👩‍👧‍👦 Atención Familiar</span>
+                                                )}
+                                                {selectedClinic.services.includes('orthodontics') && (
+                                                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">🦷 Ortodoncia</span>
+                                                )}
+                                                {selectedClinic.services.includes('emergency') && (
+                                                    <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">🚨 Urgencias 24/7</span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+
                                     <button
                                         onClick={() => {
                                             setShowClinicModal(false);
                                             setReportType('clinic');
                                             setShowContactForm(true);
+                                            setContactData({...contactData, clinicName: selectedClinic.name});
                                         }}
-                                        className="w-full bg-gradient-to-r from-purple-500 to-purple-700 text-white py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:from-purple-600 hover:to-purple-800 transition-all"
+                                        className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:from-blue-700 hover:to-blue-900 transition-all shadow-lg hover:shadow-xl"
                                     >
                                         📊 Solicitar Análisis Competitivo
                                     </button>
@@ -505,10 +1346,53 @@
                         </div>
                     )}
 
-                    {/* MODAL DE CONTACTO - RESPONSIVO */}
+                    {/* MODAL HUELLA DIGITAL */}
+                    {showHuellaDigital && huellaClinic && (
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowHuellaDigital(false)}>
+                            <div className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto modal-content" onClick={(e) => e.stopPropagation()}>
+                                <div className="huella-container">
+                                    {/* Botón cerrar */}
+                                    <div className="absolute top-4 right-4 z-10">
+                                        <button 
+                                            onClick={() => setShowHuellaDigital(false)}
+                                            className="bg-white text-gray-700 hover:text-gray-900 rounded-full w-10 h-10 flex items-center justify-center shadow-lg text-2xl font-bold"
+                                        >
+                                            ×
+                                        </button>
+                                    </div>
+
+                                    {/* HEADER */}
+                                    <div className="huella-header">
+                                        <h1>HUELLA DIGITAL EXPRESS</h1>
+                                        <p className="subtitle">Análisis Competitivo Gratuito</p>
+                                        <div className="rank-badge">#{huellaClinic.rank}</div>
+                                        <h2 style={{marginTop: '15px', fontSize: '28px'}}>{huellaClinic.name}</h2>
+                                        <p style={{marginTop: '10px', fontSize: '16px'}}>Ranking Oficial Clínicas Dentales Concepción</p>
+                                    </div>
+                                    
+                                    {/* CONTENT DINÁMICO */}
+                                    <div className="huella-content">
+                                        {renderHuellaContent()}
+                                    </div>
+                                    
+                                    {/* FOOTER */}
+                                    <div className="huella-footer">
+                                        <p>
+                                            📊 <strong>Métrica CX</strong> • Rankings Oficiales Clínicas Dentales Concepción<br/>
+                                            Metodología Bayesiana • 3,600+ reseñas analizadas • 160 clínicas rankeadas<br/>
+                                            Fecha de corte: 12/10/2025
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* MODAL FORMULARIO CONTACTO */}
                     {showContactForm && (
-                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={() => setShowContactForm(false)}>
-                            <div className="bg-white rounded-xl max-w-lg w-full modal-content p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
+                        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                            <div className="bg-white rounded-2xl max-w-md w-full modal-content p-6 sm:p-8">
                                 <div className="flex justify-between items-center mb-4 sm:mb-6">
                                     <h3 className="text-xl sm:text-2xl font-bold text-gray-800">
                                         Solicitar Informe Premium
@@ -582,17 +1466,23 @@
                                     
                                     <button 
                                         type="submit"
-                                        disabled={!contactData.name || !contactData.email || !contactData.whatsapp}
-                                        className="w-full bg-blue-600 text-white py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                                        disabled={!contactData.name || !contactData.email || !contactData.whatsapp || isSubmitting}
+                                        className={`w-full py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg transition-all duration-300 ${
+                                            isSubmitting 
+                                                ? 'bg-green-500 text-white cursor-wait' 
+                                                : !contactData.name || !contactData.email || !contactData.whatsapp
+                                                    ? 'bg-gray-400 text-white cursor-not-allowed'
+                                                    : 'bg-blue-600 text-white hover:bg-blue-700 active:bg-green-500 active:scale-95'
+                                        }`}
                                     >
-                                        Enviar Solicitud
+                                        {isSubmitting ? '✓ Enviando...' : 'Enviar Solicitud'}
                                     </button>
                                 </form>
                             </div>
                         </div>
                     )}
 
-                    {/* FOOTER - RESPONSIVO */}
+                    {/* FOOTER */}
                     <footer className="bg-gray-900 text-white py-8 sm:py-12">
                         <div className="max-w-6xl mx-auto px-4 text-center">
                             <p className="text-base sm:text-lg text-gray-300 mb-2">
